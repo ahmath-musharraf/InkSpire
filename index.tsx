@@ -134,6 +134,8 @@ const initialSiteData = {
 let state = {
     siteData: JSON.parse(JSON.stringify(initialSiteData)),
     productsData: JSON.parse(JSON.stringify(initialProductsData)),
+    draftSiteData: null,
+    draftProductsData: null,
     searchableData: [],
     testimonialIntervalId: null,
     isAdmin: false,
@@ -162,6 +164,11 @@ function loadData() {
     if (savedProducts) {
         state.productsData = JSON.parse(savedProducts);
     }
+
+    if(state.isAdmin) {
+        state.draftSiteData = JSON.parse(JSON.stringify(state.siteData));
+        state.draftProductsData = JSON.parse(JSON.stringify(state.productsData));
+    }
 }
 
 function saveData() {
@@ -169,11 +176,26 @@ function saveData() {
     localStorage.setItem('inkSpireProducts', JSON.stringify(state.productsData));
 }
 
+const getCurrentData = () => {
+    if (state.isAdmin && state.draftSiteData) {
+        return {
+            siteData: state.draftSiteData,
+            productsData: state.draftProductsData
+        };
+    }
+    return {
+        siteData: state.siteData,
+        productsData: state.productsData
+    };
+};
+
+
 // --- RENDER FUNCTIONS ---
 function createSearchIndex() {
     state.searchableData = [];
+    const { productsData } = getCurrentData();
     // Index products
-    state.productsData.forEach(product => {
+    productsData.forEach(product => {
         state.searchableData.push({
             type: 'Product',
             title: product.name,
@@ -221,7 +243,8 @@ function renderAllSections() {
 }
 
 function renderStaticImages() {
-    const { logo, hero, about } = state.siteData.images;
+    const { siteData } = getCurrentData();
+    const { logo, hero, about } = siteData.images;
     const headerLogo = document.getElementById('header-logo');
     if (headerLogo) headerLogo.setAttribute('src', logo);
 
@@ -322,8 +345,9 @@ function renderProducts() {
     if (!container) return;
     container.innerHTML = '';
     
+    const { productsData } = getCurrentData();
     const productList = createElement('div', { id: 'product-list', className: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10' });
-    state.productsData.forEach((product, index) => {
+    productsData.forEach((product, index) => {
         const productCard = createProductCard(product, index);
         productList.appendChild(productCard);
     });
@@ -409,7 +433,8 @@ function renderProjects() {
     if (!container) return;
     container.innerHTML = '';
     
-    const projectCards = state.siteData.projects.map((project, index) => createProjectCard(project, index));
+    const { siteData } = getCurrentData();
+    const projectCards = siteData.projects.map((project, index) => createProjectCard(project, index));
 
     const content = createElement('div', { className: 'container mx-auto px-6' }, [
         createElement('div', { className: 'text-center mb-12' }, [
@@ -469,8 +494,10 @@ function renderTeam() {
     const container = document.getElementById('team');
     if (!container) return;
     container.innerHTML = '';
+    
+    const { siteData } = getCurrentData();
 
-    const teamCards = state.siteData.team.map((member, index) => {
+    const teamCards = siteData.team.map((member, index) => {
         const card = createElement('div', {
             className: 'text-center bg-brand-secondary p-8 rounded-lg shadow-lg border border-transparent hover:border-brand-accent/50 transition-all duration-300 relative',
             style: { animation: `fadeInUp 0.5s ease-out ${index * 0.15}s forwards`, opacity: '0' }
@@ -544,6 +571,28 @@ function renderTestimonials() {
     setupTestimonialsCarousel();
 }
 
+function hasUnsavedChanges() {
+    if (!state.isAdmin || !state.draftSiteData) return false;
+    const siteDataChanged = JSON.stringify(state.siteData) !== JSON.stringify(state.draftSiteData);
+    const productsDataChanged = JSON.stringify(state.productsData) !== JSON.stringify(state.draftProductsData);
+    return siteDataChanged || productsDataChanged;
+}
+
+function updateAdminBarState() {
+    if (!state.isAdmin) return;
+    const saveBtn = document.getElementById('save-changes-btn');
+    const discardBtn = document.getElementById('discard-changes-btn');
+    if (!(saveBtn instanceof HTMLButtonElement) || !(discardBtn instanceof HTMLButtonElement)) return;
+
+    if (hasUnsavedChanges()) {
+        saveBtn.disabled = false;
+        discardBtn.disabled = false;
+    } else {
+        saveBtn.disabled = true;
+        discardBtn.disabled = true;
+    }
+}
+
 function updateAdminUI() {
     const adminBar = document.getElementById('admin-bar');
     const authBtn = document.getElementById('admin-auth-btn');
@@ -578,7 +627,7 @@ function updateAdminUI() {
                 wrapper.appendChild(editBtn);
             }
         });
-
+        updateAdminBarState();
     } else {
         if (adminBar) adminBar.classList.add('hidden');
         if (authBtn) {
@@ -939,15 +988,13 @@ function setupAdminListeners() {
     
     adminAuthBtn?.addEventListener('click', () => {
         if (state.isAdmin) {
-            if (confirm('Are you sure you want to log out?')) logout();
+            logout();
         } else if (adminLoginModal) {
             adminLoginModal.classList.remove('hidden');
         }
     });
 
-    logoutBtn?.addEventListener('click', () => {
-        if (confirm('Are you sure you want to log out?')) logout();
-    });
+    logoutBtn?.addEventListener('click', logout);
     
     document.getElementById('close-login-modal')?.addEventListener('click', () => {
         if (adminLoginModal) adminLoginModal.classList.add('hidden');
@@ -967,6 +1014,9 @@ function setupAdminListeners() {
         if (usernameInput.value === ADMIN_USERNAME && passwordInput.value === ADMIN_PASSWORD) {
             state.isAdmin = true;
             sessionStorage.setItem('isAdminLoggedIn', 'true');
+            state.draftSiteData = JSON.parse(JSON.stringify(state.siteData));
+            state.draftProductsData = JSON.parse(JSON.stringify(state.productsData));
+
             if(adminLoginModal) adminLoginModal.classList.add('hidden');
             form.reset();
             errorEl.classList.add('hidden');
@@ -995,11 +1045,11 @@ function setupAdminListeners() {
         if(deleteBtn instanceof HTMLElement && deleteBtn.dataset.type && deleteBtn.dataset.index) {
             const { type, index: indexStr } = deleteBtn.dataset;
             const index = parseInt(indexStr, 10);
-            if (confirm(`Are you sure you want to delete this ${type}?`)) {
-                if (type === 'product' && state.productsData[index]) {
-                    state.productsData.splice(index, 1);
-                    saveData();
+            if (confirm(`Are you sure you want to delete this ${type}? This action will be staged until you save all changes.`)) {
+                if (type === 'product' && state.draftProductsData[index]) {
+                    state.draftProductsData.splice(index, 1);
                     renderProducts();
+                    updateAdminBarState();
                 }
             }
         }
@@ -1037,11 +1087,10 @@ function setupAdminListeners() {
                 image: state.editingContext.data.image
             };
             if (index !== null) {
-                state.productsData[index] = updatedProduct;
+                state.draftProductsData[index] = updatedProduct;
             } else {
-                state.productsData.push({ ...updatedProduct, image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=400&h=300&auto=format&fit=crop' });
+                state.draftProductsData.push({ ...updatedProduct, image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=400&h=300&auto=format&fit=crop' });
             }
-            saveData();
             renderProducts();
         } else if (type === 'project') {
             const updatedProject = {
@@ -1050,8 +1099,7 @@ function setupAdminListeners() {
                 description: getValue('description'),
                 image: state.editingContext.data.image
             };
-            state.siteData.projects[index] = updatedProject;
-            saveData();
+            state.draftSiteData.projects[index] = updatedProject;
             renderProjects();
         } else if (type === 'team') {
             const updatedMember = {
@@ -1059,22 +1107,47 @@ function setupAdminListeners() {
                 role: getValue('role'),
                 image: state.editingContext.data.image
             };
-            state.siteData.team[index] = updatedMember;
-            saveData();
+            state.draftSiteData.team[index] = updatedMember;
             renderTeam();
         }
         
+        updateAdminBarState();
         closeEditModal();
     });
 
     document.getElementById('reset-data-btn')?.addEventListener('click', () => {
         if(confirm('Are you sure you want to reset all site and product data to their defaults? This cannot be undone.')) {
-            localStorage.removeItem('inkSpireSiteData');
-            localStorage.removeItem('inkSpireProducts');
             state.siteData = JSON.parse(JSON.stringify(initialSiteData));
             state.productsData = JSON.parse(JSON.stringify(initialProductsData));
+            if (state.isAdmin) {
+                state.draftSiteData = JSON.parse(JSON.stringify(state.siteData));
+                state.draftProductsData = JSON.parse(JSON.stringify(state.productsData));
+            }
+            saveData();
             renderAllSections();
             alert('Site data has been reset to default.');
+        }
+    });
+
+    document.getElementById('save-changes-btn')?.addEventListener('click', () => {
+        if (!hasUnsavedChanges()) return;
+        if (confirm('Are you sure you want to save all changes? This will overwrite the live data.')) {
+            state.siteData = JSON.parse(JSON.stringify(state.draftSiteData));
+            state.productsData = JSON.parse(JSON.stringify(state.draftProductsData));
+            saveData();
+            updateAdminBarState();
+            alert('All changes have been saved successfully!');
+        }
+    });
+
+    document.getElementById('discard-changes-btn')?.addEventListener('click', () => {
+        if (!hasUnsavedChanges()) return;
+        if (confirm('Are you sure you want to discard all changes made in this session?')) {
+            state.draftSiteData = JSON.parse(JSON.stringify(state.siteData));
+            state.draftProductsData = JSON.parse(JSON.stringify(state.productsData));
+            renderAllSections();
+            updateAdminBarState();
+            alert('All changes have been discarded.');
         }
     });
 }
@@ -1102,21 +1175,21 @@ function openEditModal(type, index) {
     let data;
     if (type === 'product') {
         const isNew = index === null;
-        data = isNew ? {} : state.productsData[index];
+        data = isNew ? {} : state.draftProductsData[index];
         titleEl.textContent = isNew ? 'Add New Product' : 'Edit Product';
 
         fieldsContainer.appendChild(createField('name', 'Product Name', data.name));
         fieldsContainer.appendChild(createField('price', 'Price', data.price));
         fieldsContainer.appendChild(createField('description', 'Description', data.description, 'textarea'));
     } else if (type === 'project') {
-        data = state.siteData.projects[index];
+        data = state.draftSiteData.projects[index];
         titleEl.textContent = 'Edit Project';
         
         fieldsContainer.appendChild(createField('category', 'Category', data.category));
         fieldsContainer.appendChild(createField('title', 'Title', data.title));
         fieldsContainer.appendChild(createField('description', 'Description', data.description, 'textarea'));
     } else if (type === 'team') {
-        data = state.siteData.team[index];
+        data = state.draftSiteData.team[index];
         titleEl.textContent = 'Edit Team Member';
 
         fieldsContainer.appendChild(createField('name', 'Name', data.name));
@@ -1138,17 +1211,17 @@ function openImageEditModal(imageId) {
     const index = parseInt(key, 10);
 
     let currentImageUrl = '';
-    if (type === 'product' && state.productsData[index]) {
-        currentImageUrl = state.productsData[index].image;
+    if (type === 'product' && state.draftProductsData[index]) {
+        currentImageUrl = state.draftProductsData[index].image;
         state.editingContext = { type: 'product', index };
-    } else if (type === 'project' && state.siteData.projects[index]) {
-        currentImageUrl = state.siteData.projects[index].image;
+    } else if (type === 'project' && state.draftSiteData.projects[index]) {
+        currentImageUrl = state.draftSiteData.projects[index].image;
         state.editingContext = { type: 'project', index };
-    } else if (type === 'team' && state.siteData.team[index]) {
-        currentImageUrl = state.siteData.team[index].image;
+    } else if (type === 'team' && state.draftSiteData.team[index]) {
+        currentImageUrl = state.draftSiteData.team[index].image;
         state.editingContext = { type: 'team', index };
-    } else if (type === 'image' && state.siteData.images[key]) {
-        currentImageUrl = state.siteData.images[key];
+    } else if (type === 'image' && state.draftSiteData.images[key]) {
+        currentImageUrl = state.draftSiteData.images[key];
         state.editingContext = { type: 'staticImage', key };
     } else {
         return; // Invalid imageId
@@ -1204,28 +1277,28 @@ function setupImageEditModalListeners() {
         
         let renderFunc = null;
 
-        if (type === 'product' && state.productsData[index]) {
-            state.productsData[index].image = newImageUrl;
+        if (type === 'product' && state.draftProductsData[index]) {
+            state.draftProductsData[index].image = newImageUrl;
             renderFunc = renderProducts;
-        } else if (type === 'project' && state.siteData.projects[index]) {
-            state.siteData.projects[index].image = newImageUrl;
+        } else if (type === 'project' && state.draftSiteData.projects[index]) {
+            state.draftSiteData.projects[index].image = newImageUrl;
             renderFunc = renderProjects;
-        } else if (type === 'team' && state.siteData.team[index]) {
-            state.siteData.team[index].image = newImageUrl;
+        } else if (type === 'team' && state.draftSiteData.team[index]) {
+            state.draftSiteData.team[index].image = newImageUrl;
             renderFunc = renderTeam;
-        } else if (type === 'staticImage' && state.siteData.images[key]) {
-            state.siteData.images[key] = newImageUrl;
+        } else if (type === 'staticImage' && state.draftSiteData.images[key]) {
+            state.draftSiteData.images[key] = newImageUrl;
             renderFunc = renderStaticImages;
         }
         
         if (renderFunc) {
-            saveData();
             renderFunc();
             // Special case for logo, since it's in header and footer
             if (key === 'logo') {
                 renderFooter();
                 updateAdminUI(); // Re-apply wrappers
             }
+            updateAdminBarState();
         }
         closeModal();
     });
@@ -1238,34 +1311,39 @@ function setupImageEditModalListeners() {
         
         let renderFunc = null;
 
-        if (type === 'product' && state.productsData[index]) {
-            state.productsData[index].image = placeholderImage;
+        if (type === 'product' && state.draftProductsData[index]) {
+            state.draftProductsData[index].image = placeholderImage;
             renderFunc = renderProducts;
-        } else if (type === 'project' && state.siteData.projects[index]) {
-            state.siteData.projects[index].image = placeholderImage;
+        } else if (type === 'project' && state.draftSiteData.projects[index]) {
+            state.draftSiteData.projects[index].image = placeholderImage;
             renderFunc = renderProjects;
-        } else if (type === 'team' && state.siteData.team[index]) {
-            state.siteData.team[index].image = placeholderImage;
+        } else if (type === 'team' && state.draftSiteData.team[index]) {
+            state.draftSiteData.team[index].image = placeholderImage;
             renderFunc = renderTeam;
-        } else if (type === 'staticImage' && state.siteData.images[key]) {
-            state.siteData.images[key] = placeholderImage;
+        } else if (type === 'staticImage' && state.draftSiteData.images[key]) {
+            state.draftSiteData.images[key] = placeholderImage;
             renderFunc = renderStaticImages;
         }
         
         if (renderFunc) {
-            saveData();
             renderFunc();
              if (key === 'logo') {
                 renderFooter();
                 updateAdminUI(); // Re-apply wrappers
             }
+            updateAdminBarState();
         }
         closeModal();
     });
 }
 
 function logout() {
+    if (hasUnsavedChanges() && !confirm('You have unsaved changes. Are you sure you want to log out and discard them?')) {
+        return;
+    }
     state.isAdmin = false;
+    state.draftSiteData = null;
+    state.draftProductsData = null;
     sessionStorage.removeItem('isAdminLoggedIn');
     renderAllSections();
 }
@@ -1310,9 +1388,10 @@ function setupTestimonialsCarousel() {
     if (!contentEl || !dotsContainer || !progressEl) return;
     
     let currentIndex = 0;
-    
+    const { siteData } = getCurrentData();
+
     const updateTestimonial = (index) => {
-        const testimonial = state.siteData.testimonials[index];
+        const testimonial = siteData.testimonials[index];
         contentEl.innerHTML = '';
         
         contentEl.append(
@@ -1335,7 +1414,7 @@ function setupTestimonialsCarousel() {
     };
 
     dotsContainer.innerHTML = '';
-    state.siteData.testimonials.forEach((_, i) => {
+    siteData.testimonials.forEach((_, i) => {
         dotsContainer.appendChild(
             createElement('button', {
                 className: `w-3 h-3 rounded-full transition-colors ${i === 0 ? 'bg-brand-accent' : 'bg-gray-600'}`,
@@ -1359,7 +1438,7 @@ function setupTestimonialsCarousel() {
     
     const startInterval = () => {
       return setInterval(() => {
-          currentIndex = (currentIndex + 1) % state.siteData.testimonials.length;
+          currentIndex = (currentIndex + 1) % siteData.testimonials.length;
           updateTestimonial(currentIndex);
       }, 7000);
     };
