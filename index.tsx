@@ -75,6 +75,11 @@ const ICONS = {
     THREADS: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.17,11.58c0,1.25-.43,2.33-1.28,3.25s-1.9,1.38-3.13,1.38c-1.39,0-2.58-.61-3.54-1.83L4.8,14.77c1.19,1.4,2.83,2.1,4.92,2.1,1.93,0,3.48-.56,4.64-1.68,1.16-1.12,1.74-2.62,1.74-4.52,0-1.88-.63-3.47-1.88-4.78s-2.76-1.96-4.51-1.96c-2.15,0-3.83,.79-5.04,2.36l.42-.16c.33-.13,.67-.2,1.03-.2,.55,0,1.02,.17,1.4,.51,.39,.34,.58,.82,.58,1.43,0,.5-.17,1.02-.52,1.55s-.77,.8-1.28,.8c-.53,0-1-.21-1.39-.64s-.58-.99-.58-1.69c0-1.21,.53-2.2,1.59-2.98,1.06-.78,2.4-1.17,4.02-1.17,1.88,0,3.41,.6,4.59,1.81,1.18,1.2,1.77,2.77,1.77,4.68Z"/></svg>',
     TELEGRAM: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="currentColor"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/></svg>',
     SEARCH: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"></path></svg>',
+    CONSULTATION: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
+    DESIGN: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>',
+    PRODUCTION: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>',
+    DELIVERY: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>',
+    CHEVRON_DOWN: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>',
 };
 
 // --- CONSTANTS AND STATE MANAGEMENT ---
@@ -128,6 +133,19 @@ const initialSiteData = {
         { quote: "We needed high-quality custom apparel for our new clothing line. INK Spire's textile printing service was flawless. The colors are vibrant and the fabric quality is excellent.", name: 'Rajiv Kumar', title: 'Founder, Kandy Trends', image: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=100&h=100&auto=format&fit=crop' },
         { quote: "The team at INK Spire delivered stunning standees and backdrops for our hotel launch in Galle. Their attention to detail and creative input was invaluable.", name: 'Anusha Silva', title: 'Marketing Manager, Galle Fort Hotel', image: 'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=100&h=100&auto=format&fit=crop' },
         { quote: "For our resort in Trincomalee, we needed durable and beautiful outdoor signage. INK Spire exceeded our expectations with weather-resistant signs that perfectly match our brand.", name: 'David Ratnayake', title: 'General Manager, Trinco Blu', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&h=100&auto=format&fit=crop' },
+    ],
+    process: [
+        { icon: 'CONSULTATION', title: 'Consultation & Quote', description: "We start by understanding your vision, requirements, and budget to provide a tailored quote and timeline." },
+        { icon: 'DESIGN', title: 'Design & Proofing', description: "Our creative team designs the artwork. You'll receive a digital proof for approval before we proceed to print." },
+        { icon: 'PRODUCTION', title: 'Production', description: 'Once approved, your project moves to our state-of-the-art production facility where we bring it to life with precision.' },
+        { icon: 'DELIVERY', title: 'Delivery & Follow-up', description: 'We ensure your finished products are delivered safely and on time. We follow up to guarantee your complete satisfaction.' }
+    ],
+    faq: [
+        { question: 'What are your business hours?', answer: 'Our office is open from 9:00 AM to 6:00 PM, Monday through Saturday. We are closed on Sundays and public holidays.' },
+        { question: 'What file formats do you accept for printing?', answer: 'We prefer print-ready PDF files. We also accept Adobe Illustrator (.ai), Photoshop (.psd), and high-resolution JPEGs or PNGs. For best results, please ensure your files have a 300 DPI resolution and are in CMYK color mode.' },
+        { question: 'What is your typical turnaround time?', answer: 'Turnaround time varies depending on the project complexity and quantity. Standard business cards take 2-3 business days, while larger projects like banners may take 5-7 business days. We will provide a precise timeline with your quote.' },
+        { question: 'Can you ship orders outside of the Eastern Province?', answer: 'Yes, we offer island-wide delivery across Sri Lanka. Shipping charges will be calculated based on your location and the weight of the order.' },
+        { question: 'Do you offer design services?', answer: 'Absolutely! Our talented team of designers can help you create stunning artwork from scratch or refine your existing designs. Just let us know your requirements during the consultation.' }
     ]
 };
 
@@ -193,37 +211,33 @@ const getCurrentData = () => {
 // --- RENDER FUNCTIONS ---
 function createSearchIndex() {
     state.searchableData = [];
-    const { productsData } = getCurrentData();
+    const { productsData, siteData } = getCurrentData();
+
     // Index products
     productsData.forEach(product => {
-        state.searchableData.push({
-            type: 'Product',
-            title: product.name,
-            description: product.description,
-            link: '#products'
-        });
+        state.searchableData.push({ type: 'Product', title: product.name, description: product.description, link: '#products' });
     });
 
     // Index services
     for (const serviceId in servicesData) {
         const service = servicesData[serviceId];
-        state.searchableData.push({
-            type: 'Service',
-            title: service.title,
-            description: `A wide range of services including ${Object.keys(service.data).join(', ')}.`,
-            link: '#services'
-        });
+        state.searchableData.push({ type: 'Service', title: service.title, description: `A wide range of services including ${Object.keys(service.data).join(', ')}.`, link: '#services' });
         for (const category in service.data) {
             service.data[category].forEach(item => {
-                state.searchableData.push({
-                    type: 'Service Item',
-                    title: item,
-                    description: `${category} under ${service.title}`,
-                    link: '#services'
-                });
+                state.searchableData.push({ type: 'Service Item', title: item, description: `${category} under ${service.title}`, link: '#services' });
             });
         }
     }
+
+    // Index process steps
+    siteData.process.forEach(step => {
+        state.searchableData.push({ type: 'Process', title: step.title, description: step.description, link: '#process' });
+    });
+
+    // Index FAQs
+    siteData.faq.forEach(item => {
+        state.searchableData.push({ type: 'FAQ', title: item.question, description: item.answer, link: '#faq' });
+    });
 }
 
 function renderAllSections() {
@@ -232,9 +246,11 @@ function renderAllSections() {
     renderProducts();
     renderProjects();
     renderWhyChooseUs();
+    renderPrintingProcess();
     renderTeam();
     renderClients();
     renderTestimonials();
+    renderFAQ();
     renderContactCTA();
     renderContactSection();
     renderFooter();
@@ -675,6 +691,99 @@ function renderWhyChooseUs() {
     ]);
     container.appendChild(content);
 }
+
+function renderPrintingProcess() {
+    const container = document.getElementById('process');
+    if (!container) return;
+    container.innerHTML = '';
+    const { siteData } = getCurrentData();
+
+    const steps = siteData.process.map((step, index) => {
+        const stepElement = createElement('div', { className: 'relative flex items-start group' }, [
+            createElement('div', { className: 'flex-shrink-0 flex flex-col items-center w-24' }, [
+                createElement('div', { className: 'z-10 w-16 h-16 bg-brand-secondary rounded-full flex items-center justify-center border-4 border-brand-accent/50 group-hover:border-brand-accent transition-colors duration-300' }, [
+                    createSVG(ICONS[step.icon])
+                ]),
+                index < siteData.process.length - 1 ? createElement('div', { className: 'w-1 h-24 bg-brand-purple/50 mt-2' }) : null,
+            ].filter(Boolean)),
+            createElement('div', { className: 'ml-6 pb-24 relative' }, [
+                createElement('h4', { className: 'text-2xl font-bold text-white mb-2' }, [step.title]),
+                createElement('p', { className: 'text-gray-400' }, [step.description]),
+            ])
+        ]);
+
+        if (state.isAdmin) {
+            const editButton = createElement('button', {
+                className: 'edit-btn absolute top-0 right-0 p-2 bg-blue-600 rounded-full hover:bg-blue-500 z-10 opacity-0 group-hover:opacity-100 transition-opacity',
+                'data-type': 'process',
+                'data-index': index.toString(),
+                title: 'Edit Step'
+            }, [createSVG(ICONS.EDIT)]);
+            stepElement.querySelector('div.ml-6')?.appendChild(editButton);
+        }
+        return stepElement;
+    });
+
+    const content = createElement('div', { className: 'container mx-auto px-6' }, [
+        createElement('div', { className: 'text-center mb-16' }, [
+            createElement('h2', { className: 'text-sm font-bold uppercase tracking-widest text-brand-accent mb-2' }, ['Our Workflow']),
+            createElement('h3', { className: 'text-3xl md:text-4xl font-bold text-white' }, ['Our Simple 4-Step Process']),
+            createElement('p', { className: 'max-w-2xl mx-auto text-gray-400 mt-4' }, ['From concept to completion, we make the printing process seamless and transparent.'])
+        ]),
+        createElement('div', { className: 'max-w-2xl mx-auto' }, steps)
+    ]);
+
+    container.appendChild(content);
+}
+
+function renderFAQ() {
+    const container = document.getElementById('faq');
+    if (!container) return;
+    container.innerHTML = '';
+    const { siteData } = getCurrentData();
+
+    const faqItems = siteData.faq.map((item, index) => {
+        const faqItem = createElement('div', { className: 'border-b border-brand-purple/50 group' }, [
+            createElement('button', {
+                className: 'faq-question w-full flex justify-between items-center text-left py-6',
+                'aria-expanded': 'false'
+            }, [
+                createElement('h4', { className: 'text-xl font-semibold text-white' }, [item.question]),
+                createElement('span', { className: 'text-brand-accent transition-transform duration-300' }, [createSVG(ICONS.CHEVRON_DOWN)])
+            ]),
+            createElement('div', { className: 'faq-answer overflow-hidden transition-all duration-300 ease-in-out', style: { maxHeight: '0px' } }, [
+                createElement('p', { className: 'pb-6 text-gray-400' }, [item.answer])
+            ])
+        ]);
+
+        if (state.isAdmin) {
+            const controls = createElement('div', { className: 'absolute top-4 right-12 z-10 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity' }, [
+                createElement('button', { className: 'edit-btn p-2 bg-blue-600 rounded-full hover:bg-blue-500', 'data-type': 'faq', 'data-index': index.toString(), title: 'Edit FAQ' }, [createSVG(ICONS.EDIT)]),
+                createElement('button', { className: 'delete-btn p-2 bg-red-600 rounded-full hover:bg-red-500', 'data-type': 'faq', 'data-index': index.toString(), title: 'Delete FAQ' }, [createSVG(ICONS.DELETE)])
+            ]);
+            const questionButton = faqItem.querySelector('.faq-question');
+            questionButton?.appendChild(controls);
+        }
+
+        return faqItem;
+    });
+
+    const header = createElement('div', { className: 'text-center mb-12' }, [
+        createElement('h2', { className: 'text-sm font-bold uppercase tracking-widest text-brand-accent mb-2' }, ['Help Center']),
+        createElement('h3', { className: 'text-3xl md:text-4xl font-bold text-white' }, ['Frequently Asked Questions']),
+        createElement('p', { className: 'max-w-2xl mx-auto text-gray-400 mt-4' }, ['Find answers to common questions about our services, process, and policies.'])
+    ]);
+
+    if (state.isAdmin) {
+        header.appendChild(createElement('button', { id: 'add-faq-btn', className: 'mt-6 bg-brand-accent text-brand-primary font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition-colors' }, ['Add New FAQ']));
+    }
+    
+    container.appendChild(createElement('div', { className: 'container mx-auto px-6' }, [
+        header,
+        createElement('div', { className: 'max-w-3xl mx-auto' }, faqItems)
+    ]));
+}
+
 function renderClients() {
     const container = document.getElementById('clients');
     if (!container) return;
@@ -914,6 +1023,28 @@ function setupEventListeners() {
         }
     });
 
+    const faqContainer = document.getElementById('faq');
+    faqContainer?.addEventListener('click', (e) => {
+        const target = e.target;
+        if (!(target instanceof Element)) return;
+        const questionButton = target.closest('.faq-question');
+        if (questionButton) {
+            const answer = questionButton.nextElementSibling;
+            const icon = questionButton.querySelector('svg');
+            const isOpen = questionButton.getAttribute('aria-expanded') === 'true';
+
+            questionButton.setAttribute('aria-expanded', String(!isOpen));
+            if (answer instanceof HTMLElement) {
+                if (isOpen) {
+                    answer.style.maxHeight = '0px';
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            }
+            icon?.classList.toggle('rotate-180', !isOpen);
+        }
+    });
+
     const searchModal = document.getElementById('search-modal');
     const searchInput = document.getElementById('search-input');
     const searchResultsContainer = document.getElementById('search-results');
@@ -1035,6 +1166,11 @@ function setupAdminListeners() {
             openEditModal('product', null);
         }
 
+        const addFaqBtn = target.closest('#add-faq-btn');
+        if (addFaqBtn) {
+            openEditModal('faq', null);
+        }
+
         const editBtn = target.closest('.edit-btn');
         if (editBtn instanceof HTMLElement && editBtn.dataset.type && editBtn.dataset.index) {
             const index = parseInt(editBtn.dataset.index, 10);
@@ -1049,8 +1185,11 @@ function setupAdminListeners() {
                 if (type === 'product' && state.draftProductsData[index]) {
                     state.draftProductsData.splice(index, 1);
                     renderProducts();
-                    updateAdminBarState();
+                } else if (type === 'faq' && state.draftSiteData.faq[index]) {
+                    state.draftSiteData.faq.splice(index, 1);
+                    renderFAQ();
                 }
+                updateAdminBarState();
             }
         }
         
@@ -1109,6 +1248,25 @@ function setupAdminListeners() {
             };
             state.draftSiteData.team[index] = updatedMember;
             renderTeam();
+        } else if (type === 'process') {
+            const updatedStep = {
+                ...state.editingContext.data,
+                title: getValue('title'),
+                description: getValue('description'),
+            };
+            state.draftSiteData.process[index] = updatedStep;
+            renderPrintingProcess();
+        } else if (type === 'faq') {
+            const updatedFaq = {
+                question: getValue('question'),
+                answer: getValue('answer'),
+            };
+            if (index !== null) {
+                state.draftSiteData.faq[index] = updatedFaq;
+            } else {
+                state.draftSiteData.faq.push(updatedFaq);
+            }
+            renderFAQ();
         }
         
         updateAdminBarState();
@@ -1177,23 +1335,31 @@ function openEditModal(type, index) {
         const isNew = index === null;
         data = isNew ? {} : state.draftProductsData[index];
         titleEl.textContent = isNew ? 'Add New Product' : 'Edit Product';
-
         fieldsContainer.appendChild(createField('name', 'Product Name', data.name));
         fieldsContainer.appendChild(createField('price', 'Price', data.price));
         fieldsContainer.appendChild(createField('description', 'Description', data.description, 'textarea'));
     } else if (type === 'project') {
         data = state.draftSiteData.projects[index];
         titleEl.textContent = 'Edit Project';
-        
         fieldsContainer.appendChild(createField('category', 'Category', data.category));
         fieldsContainer.appendChild(createField('title', 'Title', data.title));
         fieldsContainer.appendChild(createField('description', 'Description', data.description, 'textarea'));
     } else if (type === 'team') {
         data = state.draftSiteData.team[index];
         titleEl.textContent = 'Edit Team Member';
-
         fieldsContainer.appendChild(createField('name', 'Name', data.name));
         fieldsContainer.appendChild(createField('role', 'Role', data.role));
+    } else if (type === 'process') {
+        data = state.draftSiteData.process[index];
+        titleEl.textContent = 'Edit Process Step';
+        fieldsContainer.appendChild(createField('title', 'Title', data.title));
+        fieldsContainer.appendChild(createField('description', 'Description', data.description, 'textarea'));
+    } else if (type === 'faq') {
+        const isNew = index === null;
+        data = isNew ? {} : state.draftSiteData.faq[index];
+        titleEl.textContent = isNew ? 'Add New FAQ' : 'Edit FAQ';
+        fieldsContainer.appendChild(createField('question', 'Question', data.question, 'textarea'));
+        fieldsContainer.appendChild(createField('answer', 'Answer', data.answer, 'textarea'));
     }
     
     state.editingContext = { type, index, data };
