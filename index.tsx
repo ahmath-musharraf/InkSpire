@@ -91,48 +91,48 @@ const ADMIN_PASSWORD = 'password123';
 
 
 const initialProductsData = [
-    { name: 'Premium Business Cards (x100)', price: 'LKR 2,500', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://images.unsplash.com/photo-1619454018014-a3c3b2f5b61c?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'A5 Flyers (x500)', price: 'LKR 8,000', description: 'High-quality 150gsm gloss paper, perfect for promotions.', image: 'https://images.unsplash.com/photo-1599310219803-7023051005a9?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Roll-Up Banner (Standard)', price: 'LKR 12,500', description: 'Durable, portable, and easy to set up for any event.', image: 'https://images.unsplash.com/photo-1611754407519-281b1e96a4e3?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Custom Mugs (x10)', price: 'LKR 4,500', description: 'Personalized ceramic mugs, ideal for corporate branding.', image: 'https://images.unsplash.com/photo-1611937553538-4a4a5b5a2a2a?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'A4 Branded Notepads (x25)', price: 'LKR 6,000', description: 'Professionally designed notepads for office or client use.', image: 'https://images.unsplash.com/photo-1583485312954-07318a38a1e8?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Event T-Shirts (x20)', price: 'LKR 15,000', description: 'High-quality cotton t-shirts with custom screen printing.', image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Die-Cut Stickers (x100)', price: 'LKR 3,000', description: 'Custom shape vinyl stickers, waterproof and durable.', image: 'https://images.unsplash.com/photo-1621987569796-1c223c52a0d9?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Canvas Tote Bags (x50)', price: 'LKR 20,000', description: 'Eco-friendly tote bags with your custom design printed.', image: 'https://images.unsplash.com/photo-1572196242099-61c16b4457d4?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Wall Calendars (A3, x10)', price: 'LKR 15,000', description: '12-page calendar, perfect for corporate new year gifts.', image: 'https://images.unsplash.com/photo-1606823354313-a4a90f84570c?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Presentation Folders (x50)', price: 'LKR 9,500', description: 'A4 size folders with pockets, printed on 300gsm card.', image: 'https://images.unsplash.com/photo-1596496098-502624c9ae43?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Hardcover Journals (x10)', price: 'LKR 7,500', description: 'A5 hardcover journals with debossed or printed logos.', image: 'https://images.unsplash.com/photo-1516146553225-29e4e73dc44a?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Embroidery Patches (x100)', price: 'LKR 10,000', description: 'High-quality custom embroidered patches for apparel.', image: 'https://images.unsplash.com/photo-1632723382362-ac8d728b9d3e?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'PVC ID Cards (x50)', price: 'LKR 5,000', description: 'Durable, credit-card sized PVC cards for staff identification.', image: 'https://images.unsplash.com/photo-1634986666675-697a82e2d832?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Branded Paper Bags (x100)', price: 'LKR 7,000', description: 'Custom printed paper bags for retail and events.', image: 'https://images.unsplash.com/photo-1591561934423-07c47c0b348b?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Custom Lanyards (x100)', price: 'LKR 6,500', description: 'Satin finish lanyards with full-color sublimation printing.', image: 'https://images.unsplash.com/photo-1629907490279-a78b871c5a4a?q=80&w=400&h=300&auto=format&fit=crop' },
-    { name: 'Acrylic Keychains (x100)', price: 'LKR 9,000', description: 'Laser-cut acrylic keychains with your custom design.', image: 'https://images.unsplash.com/photo-1601813411438-518b9a1b15a6?q=80&w=400&h=300&auto=format&fit=crop' }
+    { name: 'Premium Business Cards (x100)', price: 'LKR 2,500', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'A5 Flyers (x500)', price: 'LKR 8,000', description: 'High-quality 150gsm gloss paper, perfect for promotions.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Roll-Up Banner (Standard)', price: 'LKR 12,500', description: 'Durable, portable, and easy to set up for any event.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Custom Mugs (x10)', price: 'LKR 4,500', description: 'Personalized ceramic mugs, ideal for corporate branding.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'A4 Branded Notepads (x25)', price: 'LKR 6,000', description: 'Professionally designed notepads for office or client use.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Event T-Shirts (x20)', price: 'LKR 15,000', description: 'High-quality cotton t-shirts with custom screen printing.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Die-Cut Stickers (x100)', price: 'LKR 3,000', description: 'Custom shape vinyl stickers, waterproof and durable.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Canvas Tote Bags (x50)', price: 'LKR 20,000', description: 'Eco-friendly tote bags with your custom design printed.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Wall Calendars (A3, x10)', price: 'LKR 15,000', description: '12-page calendar, perfect for corporate new year gifts.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Presentation Folders (x50)', price: 'LKR 9,500', description: 'A4 size folders with pockets, printed on 300gsm card.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Hardcover Journals (x10)', price: 'LKR 7,500', description: 'A5 hardcover journals with debossed or printed logos.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Embroidery Patches (x100)', price: 'LKR 10,000', description: 'High-quality custom embroidered patches for apparel.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'PVC ID Cards (x50)', price: 'LKR 5,000', description: 'Durable, credit-card sized PVC cards for staff identification.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Branded Paper Bags (x100)', price: 'LKR 7,000', description: 'Custom printed paper bags for retail and events.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Custom Lanyards (x100)', price: 'LKR 6,500', description: 'Satin finish lanyards with full-color sublimation printing.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' },
+    { name: 'Acrylic Keychains (x100)', price: 'LKR 9,000', description: 'Laser-cut acrylic keychains with your custom design.', image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Product' }
 ];
 
 const initialSiteData = {
     images: {
-        logo: 'Image/InkSpireLogo.PNG',
-        hero: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&h=600&auto=format&fit=crop',
-        about: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&h=600&auto=format&fit=crop',
+        logo: 'https://placehold.co/200x50/190D2B/F8C537?text=INK+Spire',
+        hero: 'https://placehold.co/600x600/2a1a45/f0f0f0?text=Hero+Image',
+        about: 'https://placehold.co/800x600/2a1a45/f0f0f0?text=About+Us',
     },
     projects: [
-      { category: 'Print & Marketing', title: 'Kattankudy Municipal Council Brochures', description: 'Designed and printed informative brochures for local government initiatives.', image: 'https://images.unsplash.com/photo-1599946347372-f8a63a56d98d?q=80&w=600&h=400&auto=format&fit=crop' },
-      { category: 'Stationery & Branding', title: 'Batticaloa Cafe Menu Printing', description: 'Created durable, beautifully designed menus for a popular local cafe.', image: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=600&h=400&auto=format&fit=crop' },
-      { category: 'Print & Marketing', title: 'Arugam Bay Surf Season Flyers', description: 'Produced vibrant, eye-catching flyers to promote events during the surf season.', image: 'https://images.unsplash.com/photo-1582287232363-5c82a55a0242?q=80&w=600&h=400&auto=format&fit=crop' },
-      { category: 'Corporate Gifts', title: 'Pasikudah Resort Welcome Kit Printing', description: 'Assembled and printed premium welcome kits for a luxury beach resort.', image: 'https://images.unsplash.com/photo-1614036125032-005667425934?q=80&w=600&h=400&auto=format&fit=crop' },
-      { category: 'Event Branding', title: 'Eastern University Event Banners', description: 'Delivered large-format banners and branding materials for a university event.', image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=600&h=400&auto=format&fit=crop' },
-      { category: 'Signages & Backdrops', title: 'Batticaloa Food Festival Backdrop', description: 'Constructed a large, themed backdrop for the city\'s annual food festival.', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd51725?q=80&w=600&h=400&auto=format&fit=crop' },
+      { category: 'Print & Marketing', title: 'Kattankudy Municipal Council Brochures', description: 'Designed and printed informative brochures for local government initiatives.', image: 'https://placehold.co/600x400/2a1a45/f0f0f0?text=Project' },
+      { category: 'Stationery & Branding', title: 'Batticaloa Cafe Menu Printing', description: 'Created durable, beautifully designed menus for a popular local cafe.', image: 'https://placehold.co/600x400/2a1a45/f0f0f0?text=Project' },
+      { category: 'Print & Marketing', title: 'Arugam Bay Surf Season Flyers', description: 'Produced vibrant, eye-catching flyers to promote events during the surf season.', image: 'https://placehold.co/600x400/2a1a45/f0f0f0?text=Project' },
+      { category: 'Corporate Gifts', title: 'Pasikudah Resort Welcome Kit Printing', description: 'Assembled and printed premium welcome kits for a luxury beach resort.', image: 'https://placehold.co/600x400/2a1a45/f0f0f0?text=Project' },
+      { category: 'Event Branding', title: 'Eastern University Event Banners', description: 'Delivered large-format banners and branding materials for a university event.', image: 'https://placehold.co/600x400/2a1a45/f0f0f0?text=Project' },
+      { category: 'Signages & Backdrops', title: 'Batticaloa Food Festival Backdrop', description: 'Constructed a large, themed backdrop for the city\'s annual food festival.', image: 'https://placehold.co/600x400/2a1a45/f0f0f0?text=Project' },
     ],
     team: [
-        { name: 'Alex Johnson', role: 'Founder & CEO', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&h=200&auto=format&fit=crop' },
-        { name: 'Samantha Lee', role: 'Lead Designer', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&auto=format&fit=crop' },
+        { name: 'Alex Johnson', role: 'Founder & CEO', image: 'https://placehold.co/200x200/2a1a45/f0f0f0?text=Team' },
+        { name: 'Samantha Lee', role: 'Lead Designer', image: 'https://placehold.co/200x200/2a1a45/f0f0f0?text=Team' },
     ],
     testimonials: [
-        { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://images.unsplash.com/photo-1615109398623-88346a601842?q=80&w=100&h=100&auto=format&fit=crop' },
-        { quote: "Their team handled all the branding for our annual tech conference in Colombo, from banners to corporate gifts. Professional, creative, and delivered on time. Highly recommended.", name: 'Fathima Rauf', title: 'Event Coordinator, CodeFest Sri Lanka', image: 'https://images.unsplash.com/photo-1619208479987-a3e9057b5a2b?q=80&w=100&h=100&auto=format&fit=crop' },
-        { quote: "We needed high-quality custom apparel for our new clothing line. INK Spire's textile printing service was flawless. The colors are vibrant and the fabric quality is excellent.", name: 'Rajiv Kumar', title: 'Founder, Kandy Trends', image: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=100&h=100&auto=format&fit=crop' },
-        { quote: "The team at INK Spire delivered stunning standees and backdrops for our hotel launch in Galle. Their attention to detail and creative input was invaluable.", name: 'Anusha Silva', title: 'Marketing Manager, Galle Fort Hotel', image: 'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=100&h=100&auto=format&fit=crop' },
-        { quote: "For our resort in Trincomalee, we needed durable and beautiful outdoor signage. INK Spire exceeded our expectations with weather-resistant signs that perfectly match our brand.", name: 'David Ratnayake', title: 'General Manager, Trinco Blu', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&h=100&auto=format&fit=crop' },
+        { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://placehold.co/100x100/2a1a45/f0f0f0?text=Client' },
+        { quote: "Their team handled all the branding for our annual tech conference in Colombo, from banners to corporate gifts. Professional, creative, and delivered on time. Highly recommended.", name: 'Fathima Rauf', title: 'Event Coordinator, CodeFest Sri Lanka', image: 'https://placehold.co/100x100/2a1a45/f0f0f0?text=Client' },
+        { quote: "We needed high-quality custom apparel for our new clothing line. INK Spire's textile printing service was flawless. The colors are vibrant and the fabric quality is excellent.", name: 'Rajiv Kumar', title: 'Founder, Kandy Trends', image: 'https://placehold.co/100x100/2a1a45/f0f0f0?text=Client' },
+        { quote: "The team at INK Spire delivered stunning standees and backdrops for our hotel launch in Galle. Their attention to detail and creative input was invaluable.", name: 'Anusha Silva', title: 'Marketing Manager, Galle Fort Hotel', image: 'https://placehold.co/100x100/2a1a45/f0f0f0?text=Client' },
+        { quote: "For our resort in Trincomalee, we needed durable and beautiful outdoor signage. INK Spire exceeded our expectations with weather-resistant signs that perfectly match our brand.", name: 'David Ratnayake', title: 'General Manager, Trinco Blu', image: 'https://placehold.co/100x100/2a1a45/f0f0f0?text=Client' },
     ],
     process: [
         { icon: 'CONSULTATION', title: 'Consultation & Quote', description: "We start by understanding your vision, requirements, and budget to provide a tailored quote and timeline." },
@@ -936,7 +936,7 @@ function renderFooter() {
     const content = createElement('div', {className: 'container mx-auto px-6'}, [
         createElement('div', {className: 'grid md:grid-cols-3 gap-12 text-center md:text-left'}, [
             createElement('div', {className: 'md:col-span-1'}, [
-                createElement('img', {id: 'footer-logo', src: '', alt: 'Image/InkSpireLogo.PNG', className: 'h-16 w-auto mx-auto md:mx-0 mb-4'}),
+                createElement('img', {id: 'footer-logo', src: '', alt: 'INK Spire Logo', className: 'h-16 w-auto mx-auto md:mx-0 mb-4'}),
                 createElement('p', {className: 'text-gray-400 leading-relaxed max-w-xs mx-auto md:mx-0'}, ['Crafting memorable brand experiences with passion, precision, and a touch of digital magic.'])
             ]),
             createElement('div', {}, [
@@ -1228,7 +1228,7 @@ function setupAdminListeners() {
             if (index !== null) {
                 state.draftProductsData[index] = updatedProduct;
             } else {
-                state.draftProductsData.push({ ...updatedProduct, image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=400&h=300&auto=format&fit=crop' });
+                state.draftProductsData.push({ ...updatedProduct, image: 'https://placehold.co/400x300/2a1a45/f0f0f0?text=New+Product' });
             }
             renderProducts();
         } else if (type === 'project') {
@@ -1472,7 +1472,7 @@ function setupImageEditModalListeners() {
     document.getElementById('remove-image-btn')?.addEventListener('click', () => {
         if (!state.editingContext || !confirm('Are you sure you want to remove this image? This will be replaced by a placeholder.')) return;
         
-        const placeholderImage = 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=400&h=300&auto=format&fit=crop';
+        const placeholderImage = 'https://placehold.co/400x300/2a1a45/f0f0f0?text=Image';
         const { type, index, key } = state.editingContext;
         
         let renderFunc = null;
