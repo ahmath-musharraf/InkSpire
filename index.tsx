@@ -346,7 +346,7 @@ function renderProducts() {
 
 function createProductCard(product, index) {
   const cardContent = [
-    createElement('div', { className: 'relative h-48' }, [
+    createElement('div', { className: 'relative h-48 group' }, [
       createElement('img', { src: product.image, alt: product.name, className: 'w-full h-full object-cover rounded-t-lg transition-transform duration-500 group-hover:scale-110' })
     ]),
     createElement('div', { className: 'p-6 flex flex-col flex-grow relative' }, [
@@ -368,12 +368,15 @@ function createProductCard(product, index) {
   ];
 
   if (state.isAdmin) {
+    const imageContainer = cardContent[0];
     const editImageBtn = createElement('button', {
       'data-image-id': `product-${index}`,
-      className: 'edit-image-btn absolute top-2 right-2 z-20 w-10 h-10 bg-blue-600/80 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 hover:bg-blue-500 hover:scale-110'
+      className: 'edit-image-btn absolute top-2 right-2 z-20 w-10 h-10 bg-blue-600/80 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 hover:bg-blue-500 hover:scale-110 opacity-0 group-hover:opacity-100',
+      title: 'Edit Image'
     }, [createSVG(ICONS.EDIT)]);
-    cardContent[0].appendChild(editImageBtn);
+    imageContainer.appendChild(editImageBtn);
 
+    const contentContainer = cardContent[1];
     const editControls = createElement('div', { className: 'absolute top-4 right-4 z-10 flex flex-col gap-2' }, [
       createElement('button', {
         className: 'edit-btn p-2 bg-blue-600 rounded-full hover:bg-blue-500',
@@ -388,7 +391,7 @@ function createProductCard(product, index) {
         title: 'Delete Product'
       }, [createSVG(ICONS.DELETE)])
     ]);
-    cardContent[1].appendChild(editControls);
+    contentContainer.appendChild(editControls);
   }
 
   return createElement('div', {
@@ -443,7 +446,8 @@ function createProjectCard(project, index) {
         imageContainer.appendChild(
             createElement('button', {
                 'data-image-id': `project-${index}`,
-                className: 'edit-image-btn absolute top-2 right-2 z-20 w-10 h-10 bg-blue-600/80 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 hover:bg-blue-500 hover:scale-110'
+                className: 'edit-image-btn absolute top-2 right-2 z-20 w-10 h-10 bg-blue-600/80 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 hover:bg-blue-500 hover:scale-110 opacity-0 group-hover:opacity-100',
+                title: 'Edit Image'
             }, [createSVG(ICONS.EDIT)])
         );
     }
@@ -484,7 +488,8 @@ function renderTeam() {
                 imageContainer.appendChild(
                     createElement('button', {
                         'data-image-id': `team-${index}`,
-                        className: 'edit-image-btn absolute top-0 right-0 z-20 w-10 h-10 bg-blue-600/80 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 hover:bg-blue-500 hover:scale-110'
+                        className: 'edit-image-btn absolute top-0 right-0 z-20 w-10 h-10 bg-blue-600/80 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 hover:bg-blue-500 hover:scale-110 opacity-0 group-hover:opacity-100',
+                        title: 'Edit Image'
                     }, [createSVG(ICONS.EDIT)])
                 );
             }
@@ -543,6 +548,13 @@ function updateAdminUI() {
     const adminBar = document.getElementById('admin-bar');
     const authBtn = document.getElementById('admin-auth-btn');
 
+    const staticImageMap = {
+        'header-logo': 'logo',
+        'footer-logo': 'logo',
+        'hero-image': 'hero',
+        'about-image': 'about',
+    };
+
     if (state.isAdmin) {
         if (adminBar) adminBar.classList.remove('hidden');
         if (authBtn) {
@@ -550,6 +562,23 @@ function updateAdminUI() {
             authBtn.classList.remove('bg-brand-purple', 'hover:bg-purple-700');
             authBtn.classList.add('bg-red-600', 'hover:bg-red-500');
         }
+        
+        Object.entries(staticImageMap).forEach(([elementId, imageKey]) => {
+            const imgElement = document.getElementById(elementId);
+            if (imgElement && !imgElement.closest('.static-edit-wrapper')) {
+                const wrapper = createElement('div', { className: 'relative group static-edit-wrapper inline-block' });
+                imgElement.parentNode.insertBefore(wrapper, imgElement);
+                wrapper.appendChild(imgElement);
+
+                const editBtn = createElement('button', {
+                    'data-image-id': `image-${imageKey}`,
+                    className: 'edit-image-btn absolute top-1 right-1 z-20 w-8 h-8 bg-blue-600/80 rounded-full flex items-center justify-center text-white shadow-lg transform transition-all duration-300 hover:bg-blue-500 hover:scale-110 opacity-0 group-hover:opacity-100',
+                    title: `Edit ${imageKey}`
+                }, [createSVG(ICONS.EDIT)]);
+                wrapper.appendChild(editBtn);
+            }
+        });
+
     } else {
         if (adminBar) adminBar.classList.add('hidden');
         if (authBtn) {
@@ -557,6 +586,15 @@ function updateAdminUI() {
             authBtn.classList.add('bg-brand-purple', 'hover:bg-purple-700');
             authBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
         }
+
+        document.querySelectorAll('.static-edit-wrapper').forEach(wrapper => {
+            const img = wrapper.querySelector('img');
+            if(img) {
+                wrapper.parentNode.replaceChild(img, wrapper);
+            } else {
+                wrapper.remove();
+            }
+        });
     }
 }
 
@@ -974,16 +1012,21 @@ function setupAdminListeners() {
     
     const editModal = document.getElementById('edit-modal');
     if (!editModal) return;
-    document.getElementById('close-edit-modal')?.addEventListener('click', () => editModal.classList.add('hidden'));
-    document.getElementById('cancel-edit-form')?.addEventListener('click', () => editModal.classList.add('hidden'));
+    const closeEditModal = () => {
+        editModal.classList.add('hidden');
+        state.editingContext = null;
+    };
+    document.getElementById('close-edit-modal')?.addEventListener('click', closeEditModal);
+    document.getElementById('cancel-edit-form')?.addEventListener('click', closeEditModal);
     
     document.getElementById('edit-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
+        if (!state.editingContext) return;
+
         const { type, index } = state.editingContext;
         const form = e.target;
         if (!(form instanceof HTMLFormElement)) return;
 
-        // FIX: Cast form element to HTMLInputElement to access value property.
         const getValue = (name) => (form.elements.namedItem(name) as HTMLInputElement)?.value || '';
         
         if (type === 'product') {
@@ -1021,7 +1064,7 @@ function setupAdminListeners() {
             renderTeam();
         }
         
-        editModal.classList.add('hidden');
+        closeEditModal();
     });
 
     document.getElementById('reset-data-btn')?.addEventListener('click', () => {
@@ -1037,7 +1080,6 @@ function setupAdminListeners() {
 }
 
 function openEditModal(type, index) {
-    state.editingContext = { type, index, data: null };
     const modal = document.getElementById('edit-modal');
     const titleEl = document.getElementById('edit-modal-title');
     const fieldsContainer = document.getElementById('edit-form-fields');
@@ -1057,32 +1099,31 @@ function openEditModal(type, index) {
         ]);
     };
 
+    let data;
     if (type === 'product') {
         const isNew = index === null;
-        const product = isNew ? {} : state.productsData[index];
-        state.editingContext.data = product;
+        data = isNew ? {} : state.productsData[index];
         titleEl.textContent = isNew ? 'Add New Product' : 'Edit Product';
 
-        fieldsContainer.appendChild(createField('name', 'Product Name', product.name));
-        fieldsContainer.appendChild(createField('price', 'Price', product.price));
-        fieldsContainer.appendChild(createField('description', 'Description', product.description, 'textarea'));
+        fieldsContainer.appendChild(createField('name', 'Product Name', data.name));
+        fieldsContainer.appendChild(createField('price', 'Price', data.price));
+        fieldsContainer.appendChild(createField('description', 'Description', data.description, 'textarea'));
     } else if (type === 'project') {
-        const project = state.siteData.projects[index];
-        state.editingContext.data = project;
+        data = state.siteData.projects[index];
         titleEl.textContent = 'Edit Project';
         
-        fieldsContainer.appendChild(createField('category', 'Category', project.category));
-        fieldsContainer.appendChild(createField('title', 'Title', project.title));
-        fieldsContainer.appendChild(createField('description', 'Description', project.description, 'textarea'));
+        fieldsContainer.appendChild(createField('category', 'Category', data.category));
+        fieldsContainer.appendChild(createField('title', 'Title', data.title));
+        fieldsContainer.appendChild(createField('description', 'Description', data.description, 'textarea'));
     } else if (type === 'team') {
-        const member = state.siteData.team[index];
-        state.editingContext.data = member;
+        data = state.siteData.team[index];
         titleEl.textContent = 'Edit Team Member';
 
-        fieldsContainer.appendChild(createField('name', 'Name', member.name));
-        fieldsContainer.appendChild(createField('role', 'Role', member.role));
+        fieldsContainer.appendChild(createField('name', 'Name', data.name));
+        fieldsContainer.appendChild(createField('role', 'Role', data.role));
     }
-
+    
+    state.editingContext = { type, index, data };
     modal.classList.remove('hidden');
 }
 
@@ -1090,25 +1131,33 @@ function openImageEditModal(imageId) {
     const modal = document.getElementById('image-edit-modal');
     const preview = document.getElementById('image-preview');
     const urlInput = document.getElementById('image-url-input');
-    if (!modal || !(preview instanceof HTMLImageElement) || !(urlInput instanceof HTMLInputElement)) return;
+    const fileInput = document.getElementById('image-file-input');
+    if (!modal || !(preview instanceof HTMLImageElement) || !(urlInput instanceof HTMLInputElement) || !(fileInput instanceof HTMLInputElement)) return;
 
-    modal.classList.remove('hidden');
-    state.editingContext = { imageId };
+    const [type, key] = imageId.split(/-(.+)/);
+    const index = parseInt(key, 10);
 
-    const [type, indexStr] = imageId.split('-');
-    const index = parseInt(indexStr, 10);
     let currentImageUrl = '';
-    
     if (type === 'product' && state.productsData[index]) {
         currentImageUrl = state.productsData[index].image;
+        state.editingContext = { type: 'product', index };
     } else if (type === 'project' && state.siteData.projects[index]) {
         currentImageUrl = state.siteData.projects[index].image;
+        state.editingContext = { type: 'project', index };
     } else if (type === 'team' && state.siteData.team[index]) {
         currentImageUrl = state.siteData.team[index].image;
+        state.editingContext = { type: 'team', index };
+    } else if (type === 'image' && state.siteData.images[key]) {
+        currentImageUrl = state.siteData.images[key];
+        state.editingContext = { type: 'staticImage', key };
+    } else {
+        return; // Invalid imageId
     }
 
     preview.src = currentImageUrl;
     urlInput.value = currentImageUrl;
+    fileInput.value = ''; // Reset file input
+    modal.classList.remove('hidden');
 }
 
 function setupImageEditModalListeners() {
@@ -1119,9 +1168,11 @@ function setupImageEditModalListeners() {
     const fileInput = document.getElementById('image-file-input');
     const preview = document.getElementById('image-preview');
 
-    document.getElementById('close-image-modal')?.addEventListener('click', () => {
+    const closeModal = () => {
         modal.classList.add('hidden');
-    });
+        state.editingContext = null;
+    };
+    document.getElementById('close-image-modal')?.addEventListener('click', closeModal);
 
     if (urlInput instanceof HTMLInputElement && preview instanceof HTMLImageElement) {
         urlInput.addEventListener('input', () => {
@@ -1146,67 +1197,72 @@ function setupImageEditModalListeners() {
     }
 
     document.getElementById('save-image-btn')?.addEventListener('click', () => {
-        if (!(urlInput instanceof HTMLInputElement) || !(preview instanceof HTMLImageElement)) return;
-        const newImageUrl = urlInput.value || preview.src;
-        const { imageId } = state.editingContext;
-        const [type, indexStr] = imageId.split('-');
-        const index = parseInt(indexStr, 10);
+        if (!state.editingContext || !(urlInput instanceof HTMLInputElement) || !(preview instanceof HTMLImageElement)) return;
         
-        let dataObject = null;
+        const newImageUrl = urlInput.value || preview.src;
+        const { type, index, key } = state.editingContext;
+        
         let renderFunc = null;
 
         if (type === 'product' && state.productsData[index]) {
-            dataObject = state.productsData[index];
+            state.productsData[index].image = newImageUrl;
             renderFunc = renderProducts;
         } else if (type === 'project' && state.siteData.projects[index]) {
-            dataObject = state.siteData.projects[index];
+            state.siteData.projects[index].image = newImageUrl;
             renderFunc = renderProjects;
         } else if (type === 'team' && state.siteData.team[index]) {
-            dataObject = state.siteData.team[index];
+            state.siteData.team[index].image = newImageUrl;
             renderFunc = renderTeam;
+        } else if (type === 'staticImage' && state.siteData.images[key]) {
+            state.siteData.images[key] = newImageUrl;
+            renderFunc = renderStaticImages;
         }
         
-        if (dataObject && renderFunc) {
-            dataObject.image = newImageUrl;
+        if (renderFunc) {
             saveData();
             renderFunc();
+            // Special case for logo, since it's in header and footer
+            if (key === 'logo') {
+                renderFooter();
+                updateAdminUI(); // Re-apply wrappers
+            }
         }
-
-        modal.classList.add('hidden');
+        closeModal();
     });
     
     document.getElementById('remove-image-btn')?.addEventListener('click', () => {
-        if (!confirm('Are you sure you want to remove this image? This will be replaced by a placeholder.')) return;
-
-        const { imageId } = state.editingContext;
-        const [type, indexStr] = imageId.split('-');
-        const index = parseInt(indexStr, 10);
+        if (!state.editingContext || !confirm('Are you sure you want to remove this image? This will be replaced by a placeholder.')) return;
         
         const placeholderImage = 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=400&h=300&auto=format&fit=crop';
-        let dataObject = null;
+        const { type, index, key } = state.editingContext;
+        
         let renderFunc = null;
 
         if (type === 'product' && state.productsData[index]) {
-            dataObject = state.productsData[index];
+            state.productsData[index].image = placeholderImage;
             renderFunc = renderProducts;
         } else if (type === 'project' && state.siteData.projects[index]) {
-            dataObject = state.siteData.projects[index];
+            state.siteData.projects[index].image = placeholderImage;
             renderFunc = renderProjects;
         } else if (type === 'team' && state.siteData.team[index]) {
-            dataObject = state.siteData.team[index];
+            state.siteData.team[index].image = placeholderImage;
             renderFunc = renderTeam;
+        } else if (type === 'staticImage' && state.siteData.images[key]) {
+            state.siteData.images[key] = placeholderImage;
+            renderFunc = renderStaticImages;
         }
         
-        if (dataObject && renderFunc) {
-            dataObject.image = placeholderImage;
+        if (renderFunc) {
             saveData();
             renderFunc();
+             if (key === 'logo') {
+                renderFooter();
+                updateAdminUI(); // Re-apply wrappers
+            }
         }
-
-        modal.classList.add('hidden');
+        closeModal();
     });
 }
-
 
 function logout() {
     state.isAdmin = false;
