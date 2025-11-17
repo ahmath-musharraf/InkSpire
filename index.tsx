@@ -111,7 +111,7 @@ const initialProductsData = [
 
 const initialSiteData = {
     images: {
-        logo: 'InkSpireLogo.PNG',
+        logo: "InkSpireLogo.PNG",
         hero: 'https://placehold.co/600x600/2a1a45/f0f0f0?text=Hero+Image',
         about: 'https://placehold.co/800x600/2a1a45/f0f0f0?text=About+Us',
     },
@@ -124,8 +124,8 @@ const initialSiteData = {
       { category: 'Signages & Backdrops', title: 'Batticaloa Food Festival Backdrop', description: 'Constructed a large, themed backdrop for the city\'s annual food festival.', image: 'https://placehold.co/600x400/2a1a45/f0f0f0?text=Project' },
     ],
     team: [
-        { name: 'Alex Johnson', role: 'Founder & CEO', image: 'https://placehold.co/200x200/2a1a45/f0f0f0?text=Team' },
-        { name: 'Samantha Lee', role: 'Lead Designer', image: 'https://placehold.co/200x200/2a1a45/f0f0f0?text=Team' },
+        { name: 'Abdul Rahman', role: 'Founder & CEO', image: "InkSpireLogo.PNG" },
+        { name: 'Samantha Lee', role: 'Lead Designer', image: "InkSpireLogo.PNG" },
     ],
     testimonials: [
         { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://placehold.co/100x100/2a1a45/f0f0f0?text=Client' },
