@@ -111,7 +111,7 @@ const initialProductsData = [
 
 const initialSiteData = {
     images: {
-        logo: 'https://placehold.co/200x50/190D2B/F8C537?text=INK+Spire',
+        logo: 'InkSpireLogo.PNG',
         hero: 'https://placehold.co/600x600/2a1a45/f0f0f0?text=Hero+Image',
         about: 'https://placehold.co/800x600/2a1a45/f0f0f0?text=About+Us',
     },
