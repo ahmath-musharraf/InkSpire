@@ -936,7 +936,7 @@ function renderFooter() {
     const content = createElement('div', {className: 'container mx-auto px-6'}, [
         createElement('div', {className: 'grid md:grid-cols-3 gap-12 text-center md:text-left'}, [
             createElement('div', {className: 'md:col-span-1'}, [
-                createElement('img', {id: 'footer-logo', src: '', alt: 'INK Spire Logo', className: 'h-16 w-auto mx-auto md:mx-0 mb-4'}),
+                createElement('img', {id: 'footer-logo', src: '', alt: 'Image/InkSpireLogo.PNG', className: 'h-16 w-auto mx-auto md:mx-0 mb-4'}),
                 createElement('p', {className: 'text-gray-400 leading-relaxed max-w-xs mx-auto md:mx-0'}, ['Crafting memorable brand experiences with passion, precision, and a touch of digital magic.'])
             ]),
             createElement('div', {}, [
