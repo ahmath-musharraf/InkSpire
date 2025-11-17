@@ -111,7 +111,7 @@ const initialProductsData = [
 
 const initialSiteData = {
     images: {
-        logo: 'https://i.imgur.com/gJeS3c4.png',
+        logo: 'Image/InkSpireLogo.PNG',
         hero: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&h=600&auto=format&fit=crop',
         about: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&h=600&auto=format&fit=crop',
     },
