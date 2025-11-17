@@ -46,19 +46,6 @@ const createSVG = (svgString) => {
 };
 
 
-/**
- * Asynchronously hashes a string using the SHA-256 algorithm.
- * @param {string} message - The string to hash.
- * @returns {Promise<string>} A promise that resolves to the hex-encoded hash.
- */
-async function sha256(message) {
-    const msgBuffer = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
-}
-
 // --- ICON CONSTANTS ---
 const ICONS = {
     PRINT: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>',
@@ -91,6 +78,12 @@ const ICONS = {
 };
 
 // --- CONSTANTS AND STATE MANAGEMENT ---
+
+// --- ADMIN CREDENTIALS ---
+// To change the admin login, update these values.
+const ADMIN_USERNAME = 'inkspire';
+const ADMIN_PASSWORD = 'password123';
+
 
 const initialProductsData = [
     { name: 'Premium Business Cards (x100)', price: 'LKR 2,500', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://images.unsplash.com/photo-1619454018014-a3c3b2f5b61c?q=80&w=400&h=300&auto=format&fit=crop' },
@@ -922,7 +915,7 @@ function setupAdminListeners() {
         if (adminLoginModal) adminLoginModal.classList.add('hidden');
     });
 
-    document.getElementById('admin-login-form')?.addEventListener('submit', async (e) => {
+    document.getElementById('admin-login-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const form = e.target;
         if (!(form instanceof HTMLFormElement)) return;
@@ -933,8 +926,7 @@ function setupAdminListeners() {
 
         if (!(usernameInput instanceof HTMLInputElement) || !(passwordInput instanceof HTMLInputElement) || !errorEl) return;
         
-        const hashedPass = await sha256(passwordInput.value);
-        if (usernameInput.value === 'inkspire' && hashedPass === '969190135d5a9d59e4198c7648f86f68c37b772481000632a9a4b85a3c200569') {
+        if (usernameInput.value === ADMIN_USERNAME && passwordInput.value === ADMIN_PASSWORD) {
             state.isAdmin = true;
             sessionStorage.setItem('isAdminLoggedIn', 'true');
             if(adminLoginModal) adminLoginModal.classList.add('hidden');
