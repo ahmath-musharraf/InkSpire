@@ -109,8 +109,7 @@
         transition: opacity 0.5s ease-in-out;
       }
     </style>
-  <link rel="stylesheet" href="/index.css">
-</head>
+  </head>
   <body class="bg-gradient-to-br from-brand-primary via-[#120a21] to-brand-secondary text-brand-text font-sans antialiased bg-[length:200%_200%] animate-animated-gradient body-loading">
     
     <!-- Preloader -->
@@ -434,9 +433,11 @@
     <div id="admin-bar" class="hidden fixed bottom-0 left-0 right-0 bg-brand-secondary/90 backdrop-blur-sm z-[60] p-2 shadow-lg border-t border-brand-purple/30">
         <div class="container mx-auto px-6 flex items-center justify-between">
             <p class="text-sm font-semibold text-white">
-                <span class="text-brand-accent">Admin Mode</span> - You are currently logged in.
+                <span class="text-brand-accent">Admin Mode</span> - You are editing the site.
             </p>
             <div class="flex items-center space-x-4">
+                <button id="save-changes-btn" class="text-sm bg-green-600 text-white font-bold py-2 px-4 rounded-full hover:bg-green-500 transition-colors disabled:bg-gray-500 disabled:cursor-not-allowed" disabled>Save All Changes</button>
+                <button id="discard-changes-btn" class="text-sm bg-gray-600 text-white font-bold py-2 px-4 rounded-full hover:bg-gray-500 transition-colors disabled:bg-gray-500 disabled:cursor-not-allowed" disabled>Discard Changes</button>
                 <button id="reset-data-btn" class="text-sm bg-yellow-600 text-white font-bold py-2 px-4 rounded-full hover:bg-yellow-500 transition-colors">Reset Site Data</button>
                 <button id="logout-btn" class="text-sm bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-500 transition-colors">Logout</button>
             </div>
