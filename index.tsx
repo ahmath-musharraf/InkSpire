@@ -53,7 +53,7 @@ const state = {
     siteData: {
         images: {
             logo: "data:image/svg+xml;utf8,%3Csvg xmlns=inkspirelogo.png",
-            hero: 'https://placehold.co/600x600/2a1a45/f0f0f0?text=Hero+Image',
+            hero: '/refs/heads/main/inkspirelogo.png',
             about: 'https://placehold.co/800x600/2a1a45/f0f0f0?text=About+Us',
         },
         projects: [
