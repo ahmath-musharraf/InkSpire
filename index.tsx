@@ -66,9 +66,9 @@ const state = {
             { category: 'Signages & Backdrops', title: 'Batticaloa Food Festival Backdrop', description: 'Constructed a large, themed backdrop for the city\'s annual food festival.', image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b6?q=80&w=2070&auto=format&fit=crop' },
         ],
         team: [
-            { name: 'MN. Abdul Rahman', role: 'Founder & CEO', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg' },
-            { name: 'MJA. Musharraf', role: 'Head of Creative, image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg' },
-            { name: 'M. Aaqif', role: 'Graphic Designer', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg' },
+            { name: 'MN. Abdul Rahman', role: 'Founder & CEO', image: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg" },
+            { name: 'MJA. Musharraf', role: 'Head of Creative, image: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg" },
+            { name: 'M. Aaqif', role: 'Graphic Designer', image: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg" },
         ],
         testimonials: [
             { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop' },
