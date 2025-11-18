@@ -66,8 +66,9 @@ const state = {
             { category: 'Signages & Backdrops', title: 'Batticaloa Food Festival Backdrop', description: 'Constructed a large, themed backdrop for the city\'s annual food festival.', image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b6?q=80&w=2070&auto=format&fit=crop' },
         ],
         team: [
-            { name: 'Alex Johnson', role: 'Founder & CEO', image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop' },
-            { name: 'Samantha Lee', role: 'Lead Designer', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop' },
+            { name: 'MN. Abdul Rahman', role: 'Founder & CEO', image: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg" },
+            { name: 'MJA. Musharraf', role: 'Head Of Creative', image: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg" },
+            { name: 'M. Aaqif', role: 'Graphic Artist', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop' },
         ],
         testimonials: [
             { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop' },
@@ -81,14 +82,6 @@ const state = {
             { icon: 'DESIGN', title: 'Design & Proofing', description: "Our creative team designs the artwork. You'll receive a digital proof for approval before we proceed to print." },
             { icon: 'PRODUCTION', title: 'Production', description: 'Once approved, your project moves to our state-of-the-art production facility where we bring it to life with precision.' },
             { icon: 'DELIVERY', title: 'Delivery & Follow-up', description: 'We ensure your finished products are delivered safely and on time. We follow up to guarantee your complete satisfaction.' }
-        ],
-        faq: [
-            { question: 'What are your business hours?', answer: 'Our office is open from 9:00 AM to 6:00 PM, Monday through Saturday. We are closed on Sundays and public holidays.' },
-            { question: 'What file formats do you accept for printing?', answer: 'We prefer print-ready PDF files. We also accept Adobe Illustrator (.ai), Photoshop (.psd), and high-resolution JPEGs or PNGs. For best results, please ensure your files have a 300 DPI resolution and are in CMYK color mode.' },
-            { question: 'What is your typical turnaround time?', answer: 'Turnaround time varies depending on the project complexity and quantity. Standard business cards take 2-3 business days, while larger projects like banners may take 5-7 business days. We will provide a precise timeline with your quote.' },
-            { question: 'Can you ship orders outside of the Eastern Province?', answer: 'Yes, we offer island-wide delivery across Sri Lanka. Shipping charges will be calculated based on your location and the weight of the order.' },
-            { question: 'Do you offer design services?', answer: 'Absolutely! Our talented team of designers can help you create stunning artwork from scratch or refine your existing designs. Just let us know your requirements during the consultation.' }
-        ]
     },
     productsData: [
         { name: 'Premium Business Cards (x100)', price: 'LKR 2,500', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://images.unsplash.com/photo-1614036417651-fe75796048a6?q=80&w=2070&auto=format&fit=crop', category: 'Stationery & Office' },
@@ -803,10 +796,10 @@ function renderFooter() {
     
     const socialIcons = [
         { icon: ICONS.WHATSAPP, href: 'https://wa.me/+940742200156' },
-        { icon: ICONS.FACEBOOK, href: '#' },
-        { icon: ICONS.INSTAGRAM, href: '#' },
+        { icon: ICONS.FACEBOOK, href: 'https://www.facebook.com/InkSpire2k25' },
+        { icon: ICONS.INSTAGRAM, href: 'https://www.instagram.com/ink_spire.lk' },
+        { icon: ICONS.TIKTOK, href: 'https://www.tiktok.com/@ink_spire.lk' },
         { icon: ICONS.TELEGRAM, href: '#' },
-        { icon: ICONS.TIKTOK, href: '#' },
         { icon: ICONS.YOUTUBE, href: '#' },
         { icon: ICONS.THREADS, href: '#' }
     ].map(social => createElement('a', { href: social.href, target: '_blank', rel: 'noopener noreferrer', className: 'text-gray-400 hover:text-brand-accent transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-black' }, [
@@ -816,7 +809,7 @@ function renderFooter() {
     const content = createElement('div', { className: 'container mx-auto px-6 py-12' }, [
         createElement('div', { className: 'grid md:grid-cols-4 gap-8 text-center md:text-left items-start' }, [
             createElement('div', {}, [
-                createElement('img', { src: state.siteData.images.logo, alt: 'INK Spire Logo', className: 'h-12 mx-auto md:mx-0' }),
+                createElement('img', { src: state.siteData.images.logo, alt: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/inkspirelogo.png', className: 'h-12 mx-auto md:mx-0' }),
                 createElement('p', { className: 'text-gray-400 mt-4 max-w-xs mx-auto md:mx-0' }, ['Your one-stop solution for creative printing and branding in the Eastern Province.'])
             ]),
             createElement('div', {}, [
@@ -830,13 +823,13 @@ function renderFooter() {
              createElement('div', {}, [
                  createElement('h4', { className: 'text-lg font-semibold text-white mb-4' }, ['Our Location']),
                  createElement('a', { 
-                    href: 'https://maps.app.goo.gl/your-google-maps-link', // Replace with your actual Google Maps link
+                    href: 'https://maps.app.goo.gl/TiBLPa9wGDZo9fbF6', // Replace with your actual Google Maps link
                     target: '_blank', 
                     rel: 'noopener noreferrer', 
                     className: 'flex items-start justify-center md:justify-start text-gray-400 hover:text-brand-accent transition-colors rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' 
                 }, [
                     createSVG(ICONS.MAP_PIN),
-                    createElement('span', { className: 'ml-2' }, ['No. 42, Main Street, Batticaloa, Sri Lanka'])
+                    createElement('span', { className: 'ml-2' }, ['No.75, Beach Road, Kattankudy - 03'])
                  ])
             ]),
             createElement('div', {}, [
