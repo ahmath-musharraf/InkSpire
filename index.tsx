@@ -809,7 +809,7 @@ function renderFooter() {
     const content = createElement('div', { className: 'container mx-auto px-6 py-12' }, [
         createElement('div', { className: 'grid md:grid-cols-4 gap-8 text-center md:text-left items-start' }, [
             createElement('div', {}, [
-                createElement('img', { src: state.siteData.images.logo, alt: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/inkspirelogo.png', className: 'h-12 mx-auto md:mx-0' }),
+                createElement('img', { src: state.siteData.images.logo, alt: 'INK Spire Logo', className: 'h-12 mx-auto md:mx-0' }),
                 createElement('p', { className: 'text-gray-400 mt-4 max-w-xs mx-auto md:mx-0' }, ['Your one-stop solution for creative printing and branding in the Eastern Province.'])
             ]),
             createElement('div', {}, [
