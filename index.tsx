@@ -82,7 +82,7 @@ const state = {
             { icon: 'DESIGN', title: 'Design & Proofing', description: "Our creative team designs the artwork. You'll receive a digital proof for approval before we proceed to print." },
             { icon: 'PRODUCTION', title: 'Production', description: 'Once approved, your project moves to our state-of-the-art production facility where we bring it to life with precision.' },
             { icon: 'DELIVERY', title: 'Delivery & Follow-up', description: 'We ensure your finished products are delivered safely and on time. We follow up to guarantee your complete satisfaction.' }
-},
+    },
     productsData: [
         { name: 'Premium Business Cards (x100)', price: 'LKR 2,500', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://images.unsplash.com/photo-1614036417651-fe75796048a6?q=80&w=2070&auto=format&fit=crop', category: 'Stationery & Office' },
         { name: 'A5 Flyers (x500)', price: 'LKR 8,000', description: 'High-quality 150gsm gloss paper, perfect for promotions.', image: 'https://images.unsplash.com/photo-1599011329384-25330510842b?q=80&w=1887&auto=format&fit=crop', category: 'Marketing & Promo' },
