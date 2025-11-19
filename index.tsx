@@ -63,7 +63,7 @@ const state = {
             title: 'Experience Our Craft',
             description: 'Get a behind-the-scenes look at our production facility and see how we bring creative ideas to life with precision and passion.',
             // Replace with your own YouTube Embed URL
-            embedUrl: 'https://youtu.be/eBrIZMF_q6U?si=u4VatErD8p-S_Cll' 
+            embedUrl: 'https://www.youtube.com/embed/eBrIZMF_q6U?si=kRS9gNX_QbdHGw9S' 
         },     
         projects: [
             // Replace 'image' URLs below with your RAW GitHub links
