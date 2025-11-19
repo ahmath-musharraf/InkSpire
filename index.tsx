@@ -831,7 +831,7 @@ function renderContactSection() {
                 createElement('p', { className: 'text-gray-400 mb-8' }, ["We're here to help with all your printing needs. Reach out to us via phone, email, or visit our office."]),
                 createElement('div', { className: 'space-y-6' }, [
                     createElement('a', { href: 'tel:+940742200156', className: 'flex items-center text-gray-300 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, [createSVG(ICONS.PHONE), createElement('span', { className: 'ml-4' }, ["+94 (074) 220 0156"])]),
-                    createElement('a', { href: 'mailto:inkspire.lk@gmail.com', className: 'flex items-center text-gray-300 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, [createSVG(ICONS.EMAIL), createElement('span', { className: 'ml-4' }, ["inkspire.lk@gmail.com"])])
+                    createElement('a', { href: 'mailto:inkspire2k25@gmail.com', className: 'flex items-center text-gray-300 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, [createSVG(ICONS.EMAIL), createElement('span', { className: 'ml-4' }, ["inkspire.lk@gmail.com"])])
                 ])
             ]),
             contactForm
@@ -847,12 +847,12 @@ function renderFooter() {
     
     const socialIcons = [
         { icon: ICONS.WHATSAPP, href: 'https://wa.me/+940742200156' },
+        { icon: ICONS.WHATSAPP, href: 'https://whatsapp.com/channel/0029Vb6TVIK0G0XjsQu8gl2s' },
         { icon: ICONS.FACEBOOK, href: 'https://www.facebook.com/InkSpire2k25' },
         { icon: ICONS.INSTAGRAM, href: 'https://www.instagram.com/ink_spire.lk' },
-        { icon: ICONS.TELEGRAM, href: '#' },
+        { icon: ICONS.TELEGRAM, href: 'https://t.me/ink_spire_lk' },
         { icon: ICONS.TIKTOK, href: 'https://www.tiktok.com/@ink_spire.lk' },
-        { icon: ICONS.YOUTUBE, href: '#' },
-        { icon: ICONS.THREADS, href: '#' }
+        { icon: ICONS.YOUTUBE, href: 'https://www.youtube.com/@Ink_Spire_lk' },
     ].map(social => createElement('a', { href: social.href, target: '_blank', rel: 'noopener noreferrer', className: 'text-gray-400 hover:text-brand-accent transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent focus-visible:ring-offset-black' }, [
         createSVG(social.icon)
     ]));
