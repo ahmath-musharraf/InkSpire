@@ -452,6 +452,11 @@ function renderVideoSection() {
     const container = document.getElementById('video-section');
     if (!container) return;
     container.innerHTML = '';
+    // Safety check: If video data is missing, don't crash, just return.
+    if (!state.siteData.video) {
+        console.warn('Video data missing in state.siteData');
+        return;
+    }
     const { video } = state.siteData;
     const content = createElement('div', { className: 'container mx-auto px-6' }, [
         createElement('div', { className: 'text-center mb-12' }, [
@@ -612,7 +617,7 @@ function renderClients() {
             createElement('p', { className: 'text-gray-400' }, ['We are proud to have partnered with a diverse range of clients.'])
         ]),
         createElement('div', { className: 'relative w-full overflow-hidden' }, [
-             createElement('div', { className: 'flex animate-marquee-slow' }, clientLogos)
+             createElement('div', { className: 'flex animate-marquee-slow w-max' }, clientLogos)
         ])
     ]);
     container.appendChild(content);
