@@ -448,6 +448,33 @@ function renderProjects() {
     container.appendChild(content);
 }
 
+function renderVideoSection() {
+    const container = document.getElementById('video-section');
+    if (!container) return;
+    container.innerHTML = '';
+    const { video } = state.siteData;
+    const content = createElement('div', { className: 'container mx-auto px-6' }, [
+        createElement('div', { className: 'text-center mb-12' }, [
+            createElement('h2', { className: 'text-sm font-bold uppercase tracking-widest text-brand-accent mb-2' }, ['Watch Us Work']),
+            createElement('h3', { className: 'text-3xl md:text-4xl font-bold text-white' }, [video.title]),
+            createElement('p', { className: 'max-w-2xl mx-auto text-gray-400 mt-4' }, [video.description])
+        ]),
+        createElement('div', { className: 'max-w-4xl mx-auto bg-brand-secondary p-2 rounded-xl shadow-2xl' }, [
+            createElement('div', { className: 'relative pb-[56.25%] h-0 overflow-hidden rounded-lg' }, [
+                createElement('iframe', {
+                    src: video.embedUrl,
+                    title: 'INK Spire Video',
+                    className: 'absolute top-0 left-0 w-full h-full border-0',
+                    allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+                    allowFullScreen: 'true'
+                })
+            ])
+        ])
+    ]);
+    container.appendChild(content);
+
+}
+
 function renderWhyChooseUs() {
     const container = document.getElementById('why-choose-us');
     if (!container) return;
@@ -1056,6 +1083,7 @@ function renderAllSections() {
     renderServices();
     renderProducts();
     renderProjects();
+    renderVideoSection();
     renderWhyChooseUs();
     renderPrintingProcess();
     renderTeam();
