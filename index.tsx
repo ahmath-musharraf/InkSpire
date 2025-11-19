@@ -56,7 +56,7 @@ const state = {
         images: {
             logo: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/inkspirelogo.png' ,
             // Replace these URLs with your RAW GitHub links (must start with https://raw.githubusercontent.com/...)
-            hero: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Images/ink1.jpg',
+            hero: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Images/ink2.jpg',
             about: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop',
         },
         projects: [
