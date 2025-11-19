@@ -97,7 +97,7 @@ const state = {
     },
     productsData: [
         // Replace 'image' URLs below with your RAW GitHub links
-        { name: 'Premium Business Cards (x100)', price: 'LKR 2,500', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://images.unsplash.com/photo-1614036417651-fe75796048a6?q=80&w=2070&auto=format&fit=crop', category: 'Stationery & Office' },
+        { name: 'Premium Business Cards', price: 'Contact Us', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Images/ink_BusinessCard.jpg', category: 'Stationery & Office' },
         { name: 'A5 Flyers (x500)', price: 'LKR 8,000', description: 'High-quality 150gsm gloss paper, perfect for promotions.', image: 'https://images.unsplash.com/photo-1599011329384-25330510842b?q=80&w=1887&auto=format&fit=crop', category: 'Marketing & Promo' },
         { name: 'Roll-Up Banner (Standard)', price: 'LKR 12,500', description: 'Durable, portable, and easy to set up for any event.', image: 'https://images.unsplash.com/photo-1587614299344-9842f27?q=80&w=1916&auto=format&fit=crop', category: 'Signage & Display' },
         { name: 'Custom Mugs', price: 'Contact Us', description: 'Personalized ceramic mugs, ideal for corporate branding.', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Images/ink_Mug.jpg', category: 'Gifts & Personal' },
