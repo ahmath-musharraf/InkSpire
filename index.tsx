@@ -610,7 +610,7 @@ function renderClients() {
         return createElement('div', {
             className: 'flex-shrink-0 w-48 flex items-center justify-center mx-8'
         }, [
-            createElement('div', { className: 'flex items-center space-x-3 text-gray-400' }, [
+            createElement('div', { className: 'flex items-center space-x-3 text-gray-400 w-max' }, [
                 createSVG(ICONS.CLIENT_LOGO),
                 createElement('span', { className: 'font-semibold text-lg' }, [clientName])
             ])
@@ -788,56 +788,29 @@ function renderContactCTA() {
             createElement('div', { className: 'bg-brand-accent rounded-lg shadow-lg p-12 text-center text-brand-primary' }, [
                 createElement('h2', { className: 'text-3xl md:text-4xl font-bold mb-4' }, ["Ready to Start Your Project?"]),
                 createElement('p', { className: 'max-w-xl mx-auto text-lg mb-8 text-brand-primary/80' }, ["Let's bring your ideas to life. Get in touch with us today for a free consultation and quote."]),
+                createElement('div', { className: 'flex flex-col md:flex-row justify-center items-center gap-6' }, [
                 createElement('a', {
-                    href: '#contact',
-                    className: 'inline-block bg-brand-primary text-brand-accent font-bold py-3 px-8 rounded-full hover:bg-white transition-colors text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-primary focus-visible:ring-offset-brand-accent'
-                }, ['Contact Us'])
+                        href: 'https://wa.me/+940742200156?text=Hello%20INK%20Spire%2C%20I%20would%20like%20to%20start%20a%20project.',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        className: 'inline-flex items-center bg-brand-primary text-brand-accent font-bold py-3 px-8 rounded-full hover:bg-white transition-colors text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-primary focus-visible:ring-offset-brand-accent'
+                    }, [
+                        createElement('span', { className: 'mr-2 w-5 h-5' }, [createSVG(ICONS.WHATSAPP)]),
+                        'Contact Us'
+                    ]),
+                    createElement('a', {
+                        href: 'https://whatsapp.com/channel/0029Vb6TVIK0G0XjsQu8gl2s',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        className: 'inline-flex items-center bg-transparent border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-accent font-bold py-3 px-8 rounded-full transition-colors text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-primary focus-visible:ring-offset-brand-accent'
+                    }, [
+                        createElement('span', { className: 'mr-2 w-5 h-5' }, [createSVG(ICONS.WHATSAPP)]),
+                        'Join Our Channel'
+                    ])
+                ])
             ])
         ])
     );
-}
-
-function renderContactSection() {
-    const container = document.getElementById('contact');
-    if (!container) return;
-    container.innerHTML = '';
-
-    const submitButton = createElement('button', { type: 'submit', className: 'w-full bg-brand-accent text-brand-primary font-bold py-4 px-6 rounded-lg hover:bg-yellow-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-brand-secondary' }, ["Send Message"]);
-
-    const contactForm = createElement('form', { className: 'space-y-6' }, [
-        createElement('input', { type: 'text', placeholder: 'Your Name', required: true, className: 'w-full p-4 bg-brand-primary border border-brand-secondary/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all duration-300' }),
-        createElement('input', { type: 'email', placeholder: 'Your Email', required: true, className: 'w-full p-4 bg-brand-primary border border-brand-secondary/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all duration-300' }),
-        createElement('textarea', { placeholder: 'Your Message', required: true, rows: '5', className: 'w-full p-4 bg-brand-primary border border-brand-secondary/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all duration-300' }),
-        submitButton
-    ]);
-    
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-        
-        setTimeout(() => {
-            alert('Thank you for your message! We will get back to you soon.');
-            (contactForm as HTMLFormElement).reset();
-            submitButton.disabled = false;
-            submitButton.textContent = 'Send Message';
-        }, 1500);
-    });
-
-    const content = createElement('div', { className: 'container mx-auto px-6' }, [
-        createElement('div', { className: 'grid md:grid-cols-2 gap-16 items-center' }, [
-            createElement('div', {}, [
-                createElement('h3', { className: 'text-2xl font-bold text-white mb-4' }, ["Get in Touch"]),
-                createElement('p', { className: 'text-gray-400 mb-8' }, ["We're here to help with all your printing needs. Reach out to us via phone, email, or visit our office."]),
-                createElement('div', { className: 'space-y-6' }, [
-                    createElement('a', { href: 'tel:+940742200156', className: 'flex items-center text-gray-300 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, [createSVG(ICONS.PHONE), createElement('span', { className: 'ml-4' }, ["+94 (074) 220 0156"])]),
-                    createElement('a', { href: 'mailto:inkspire2k25@gmail.com', className: 'flex items-center text-gray-300 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, [createSVG(ICONS.EMAIL), createElement('span', { className: 'ml-4' }, ["inkspire.lk@gmail.com"])])
-                ])
-            ]),
-            contactForm
-        ])
-    ]);
-    container.appendChild(content);
 }
 
 function renderFooter() {
@@ -867,10 +840,36 @@ function renderFooter() {
                 createElement('ul', { className: 'space-y-2' }, [
                     createElement('li', {}, [createElement('a', { href: '#services', className: 'text-gray-400 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, ['Services'])]),
                     createElement('li', {}, [createElement('a', { href: '#products', className: 'text-gray-400 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, ['Products'])]),
-                    createElement('li', {}, [createElement('a', { href: '#contact', className: 'text-gray-400 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, ['Contact'])] ),
+                    createElement('li', {}, [createElement('a', { href: '#page-footer', className: 'text-gray-400 hover:text-brand-accent rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' }, ['Contact'])] ),
                 ])
             ]),
              createElement('div', {}, [
+                                 createElement('h4', { className: 'text-lg font-semibold text-white mb-4' }, ['Contact Us']),
+
+                 createElement('div', { className: 'flex flex-col space-y-3' }, [
+                    createElement('a', { 
+                        href: 'https://maps.app.goo.gl/your-google-maps-link', 
+                        target: '_blank', 
+                        rel: 'noopener noreferrer', 
+                        className: 'flex items-start justify-center md:justify-start text-gray-400 hover:text-brand-accent transition-colors rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' 
+                    }, [
+                        createSVG(ICONS.MAP_PIN),
+                        createElement('span', { className: 'ml-2 text-sm' }, ['No. 42, Main Street, Batticaloa, Sri Lanka'])
+                     ]),
+                     createElement('a', { 
+                        href: 'tel:+940742200156', 
+                        className: 'flex items-start justify-center md:justify-start text-gray-400 hover:text-brand-accent transition-colors rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' 
+                    }, [
+                        createSVG(ICONS.PHONE),
+                        createElement('span', { className: 'ml-2 text-sm' }, ['+94 (074) 220 0156'])
+                     ]),
+                     createElement('a', { 
+                        href: 'mailto:inkspire2k25@gmail.com', 
+                        className: 'flex items-start justify-center md:justify-start text-gray-400 hover:text-brand-accent transition-colors rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' 
+                    }, [
+                        createSVG(ICONS.EMAIL),
+                        createElement('span', { className: 'ml-2 text-sm' }, ['inkspire2k25@gmail.com'])
+                     ])
                  createElement('h4', { className: 'text-lg font-semibold text-white mb-4' }, ['Our Location']),
                  createElement('a', { 
                     href: 'https://maps.app.goo.gl/TiBLPa9wGDZo9fbF6', // Replace with your actual Google Maps link
