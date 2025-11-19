@@ -72,6 +72,7 @@ const state = {
             // Replace 'image' URLs below with your RAW GitHub links
             { name: 'MN. Abdul Rahman', role: 'Founder & CEO', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg' },
             { name: 'MJA. Musharraf', role: 'Head of Creative', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg' },
+            { name: 'A. Aaqif', role: 'Designer', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg' },
         ],
         testimonials: [
             { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop' },
@@ -539,17 +540,16 @@ function renderTeam() {
         ]);
     });
 
-    const content = createElement('div', { className: 'container mx-auto px-6' }, [
+   const content = createElement('div', { className: 'container mx-auto px-6' }, [
         createElement('div', { className: 'text-center mb-12' }, [
             createElement('h2', { className: 'text-sm font-bold uppercase tracking-widest text-brand-accent mb-2' }, ['Our Experts']),
             createElement('h3', { className: 'text-3xl md:text-4xl font-bold text-white' }, ['Meet the Creative Minds']),
             createElement('p', { className: 'max-w-2xl mx-auto text-gray-400 mt-4' }, ['The passionate people behind our innovative digital solutions.'])
         ]),
-        createElement('div', { className: 'max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 text-center' }, teamCards)
+        createElement('div', { className: 'max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-center' }, teamCards)
     ]);
     container.appendChild(content);
 }
-
 function renderClients() {
     const container = document.getElementById('clients');
     if (!container) return;
