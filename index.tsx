@@ -59,6 +59,12 @@ const state = {
             hero: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Images/ink2.jpg',
             about: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Images/ink4.jpg',
         },
+        video: {
+            title: 'Experience Our Craft',
+            description: 'Get a behind-the-scenes look at our production facility and see how we bring creative ideas to life with precision and passion.',
+            // Replace with your own YouTube Embed URL
+            embedUrl: 'https://youtu.be/eBrIZMF_q6U?si=u4VatErD8p-S_Cll' 
+        },     
         projects: [
             // Replace 'image' URLs below with your RAW GitHub links
             { category: 'Print & Marketing', title: 'Kattankudy Municipal Council Brochures', description: 'Designed and printed informative brochures for local government initiatives.', image: 'https://images.unsplash.com/photo-1583339793444-4794a5357a62?q=80&w=1887&auto=format&fit=crop' },
