@@ -847,7 +847,6 @@ function renderFooter() {
     
     const socialIcons = [
         { icon: ICONS.WHATSAPP, href: 'https://wa.me/+940742200156' },
-        { icon: ICONS.WHATSAPP, href: 'https://whatsapp.com/channel/0029Vb6TVIK0G0XjsQu8gl2s' },
         { icon: ICONS.FACEBOOK, href: 'https://www.facebook.com/InkSpire2k25' },
         { icon: ICONS.INSTAGRAM, href: 'https://www.instagram.com/ink_spire.lk' },
         { icon: ICONS.TELEGRAM, href: 'https://t.me/ink_spire_lk' },
