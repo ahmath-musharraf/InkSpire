@@ -72,7 +72,7 @@ const state = {
             // Replace 'image' URLs below with your RAW GitHub links
             { name: 'MN. Abdul Rahman', role: 'Founder & CEO', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg' },
             { name: 'MJA. Musharraf', role: 'Head of Creative', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg' },
-            { name: 'A. Aaqif', role: 'Designer', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg' },
+            { name: 'Mohamed Aakif', role: 'Designer', image: 'https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Aaqif.jpg' },
         ],
         testimonials: [
             { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop' },
