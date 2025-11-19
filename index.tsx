@@ -1,3 +1,4 @@
+
 // =================================================================================
 // INK SPIRE - SINGLE FILE APPLICATION
 // All editable content is centralized in the DATA & STATE section for convenience.
@@ -53,11 +54,13 @@ const servicesData = {
 const state = {
     siteData: {
         images: {
-            logo: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/inkspirelogo.png",
+            logo: "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130.2 276.4' fill='%23F8C537'%3E%3Cpath d='M128.5,43.1C111.4,29.9,96.6,13.6,85.6,0c-13.2,29.3-25.3,58.1-39.2,85.4c-8.2-9.4-15.9-19.7-23-30.3 C11.9,41.5,4.3,28,0,15.1C13.8,41,26.4,66.5,37.1,91.3c-11.4-1.9-22.2-5.3-32.2-10.1C1,89.5,0.1,99.2,4.8,106.3 c13.4,20,31.9,35.2,52.3,46.2c-7,1.8-14.1,3.1-21.2,3.9c-4.4,0.5-5.9,4-3,7.2c16.1,17.7,35.1,32.3,55.7,44.7 c-0.8,4.3-1.5,8.6-2.3,12.9c-2,10.7,5.5,16.5,15.2,11.9c20.1-9.6,37.3-23,52.3-38.9c0.9-0.9,1.1-2.3,0.5-3.5 c-3.9-7.1-8.1-13.9-12.7-20.5c-12.5-17.9-26.7-34.4-42.6-49.3c21.8-1,42.4-5.6,61.4-14.5c5.3-2.5,6.1-8.1,2.4-11.9 c-12.3-12.6-25.5-24-39.2-34.6C119.9,64.2,126.3,52.9,128.5,43.1z'/%3E%3Cpath d='M102,217.1c-23.7,2.8-44.5,14.1-59.7,31.9c-4.9,5.7-1.1,12.3,6,13.5c22.4,3.7,45.2-3.2,63.5-17.5 C124.9,233.9,119,222.1,102,217.1z'/%3E%3C/svg%3E",
+            // Replace these URLs with your RAW GitHub links (must start with https://raw.githubusercontent.com/...)
             hero: 'https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?q=80&w=1887&auto=format&fit=crop',
             about: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop',
         },
         projects: [
+            // Replace 'image' URLs below with your RAW GitHub links
             { category: 'Print & Marketing', title: 'Kattankudy Municipal Council Brochures', description: 'Designed and printed informative brochures for local government initiatives.', image: 'https://images.unsplash.com/photo-1583339793444-4794a5357a62?q=80&w=1887&auto=format&fit=crop' },
             { category: 'Stationery & Branding', title: 'Batticaloa Cafe Menu Printing', description: 'Created durable, beautifully designed menus for a popular local cafe.', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1887&auto=format&fit=crop' },
             { category: 'Print & Marketing', title: 'Arugam Bay Surf Season Flyers', description: 'Produced vibrant, eye-catching flyers to promote events during the surf season.', image: 'https://images.unsplash.com/photo-1618799023028-1100b732d84c?q=80&w=1887&auto=format&fit=crop' },
@@ -66,8 +69,9 @@ const state = {
             { category: 'Signages & Backdrops', title: 'Batticaloa Food Festival Backdrop', description: 'Constructed a large, themed backdrop for the city\'s annual food festival.', image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b6?q=80&w=2070&auto=format&fit=crop' },
         ],
         team: [
-            { name: 'MN. Abdul Rahman', role: 'Founder & CEO', image: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Ar.jpeg" },
-            { name: 'MJA. Musharraf', role: 'Head of Creative, image: "https://raw.githubusercontent.com/ahmath-musharraf/InkSpire/refs/heads/main/Musharraf.jpg" },
+            // Replace 'image' URLs below with your RAW GitHub links
+            { name: 'Alex Johnson', role: 'Founder & CEO', image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop' },
+            { name: 'Samantha Lee', role: 'Lead Designer', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop' },
         ],
         testimonials: [
             { quote: "INK Spire transformed our local cafe's branding with their incredible menu and flyer designs. The quality was exceptional, and our customers in Batticaloa love the new look!", name: 'Sahan Perera', title: 'Owner, The Lighthouse Cafe', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop' },
@@ -83,7 +87,7 @@ const state = {
             { icon: 'DELIVERY', title: 'Delivery & Follow-up', description: 'We ensure your finished products are delivered safely and on time. We follow up to guarantee your complete satisfaction.' }
         ],
         faq: [
-            { question: 'What are your business hours?', answer: 'Our office is open from 9:00 AM to 10:00 PM, Saturday through Thursday. We are closed on Friday.' },
+            { question: 'What are your business hours?', answer: 'Our office is open from 9:00 AM to 6:00 PM, Monday through Saturday. We are closed on Sundays and public holidays.' },
             { question: 'What file formats do you accept for printing?', answer: 'We prefer print-ready PDF files. We also accept Adobe Illustrator (.ai), Photoshop (.psd), and high-resolution JPEGs or PNGs. For best results, please ensure your files have a 300 DPI resolution and are in CMYK color mode.' },
             { question: 'What is your typical turnaround time?', answer: 'Turnaround time varies depending on the project complexity and quantity. Standard business cards take 2-3 business days, while larger projects like banners may take 5-7 business days. We will provide a precise timeline with your quote.' },
             { question: 'Can you ship orders outside of the Eastern Province?', answer: 'Yes, we offer island-wide delivery across Sri Lanka. Shipping charges will be calculated based on your location and the weight of the order.' },
@@ -91,6 +95,7 @@ const state = {
         ]
     },
     productsData: [
+        // Replace 'image' URLs below with your RAW GitHub links
         { name: 'Premium Business Cards (x100)', price: 'LKR 2,500', description: '350gsm matte laminated cards with sharp, vibrant colors.', image: 'https://images.unsplash.com/photo-1614036417651-fe75796048a6?q=80&w=2070&auto=format&fit=crop', category: 'Stationery & Office' },
         { name: 'A5 Flyers (x500)', price: 'LKR 8,000', description: 'High-quality 150gsm gloss paper, perfect for promotions.', image: 'https://images.unsplash.com/photo-1599011329384-25330510842b?q=80&w=1887&auto=format&fit=crop', category: 'Marketing & Promo' },
         { name: 'Roll-Up Banner (Standard)', price: 'LKR 12,500', description: 'Durable, portable, and easy to set up for any event.', image: 'https://images.unsplash.com/photo-1587614299344-9842f27?q=80&w=1916&auto=format&fit=crop', category: 'Signage & Display' },
