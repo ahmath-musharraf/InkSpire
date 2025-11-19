@@ -87,7 +87,7 @@ const state = {
             { icon: 'DELIVERY', title: 'Delivery & Follow-up', description: 'We ensure your finished products are delivered safely and on time. We follow up to guarantee your complete satisfaction.' }
         ],
         faq: [
-            { question: 'What are your business hours?', answer: 'Our office is open from 9:00 AM to 6:00 PM, Monday through Saturday. We are closed on Sundays and public holidays.' },
+            { question: 'What are your business hours?', answer: 'Our office is open from 9:00 AM to 10:00 PM, Saturday through Thursday. We are closed on Friday.' },
             { question: 'What file formats do you accept for printing?', answer: 'We prefer print-ready PDF files. We also accept Adobe Illustrator (.ai), Photoshop (.psd), and high-resolution JPEGs or PNGs. For best results, please ensure your files have a 300 DPI resolution and are in CMYK color mode.' },
             { question: 'What is your typical turnaround time?', answer: 'Turnaround time varies depending on the project complexity and quantity. Standard business cards take 2-3 business days, while larger projects like banners may take 5-7 business days. We will provide a precise timeline with your quote.' },
             { question: 'Can you ship orders outside of the Eastern Province?', answer: 'Yes, we offer island-wide delivery across Sri Lanka. Shipping charges will be calculated based on your location and the weight of the order.' },
