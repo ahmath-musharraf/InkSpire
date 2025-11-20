@@ -437,7 +437,12 @@ function renderProjects() {
               createElement('h3', { className: 'text-2xl font-bold mt-2 text-white' }, [project.title]),
               createElement('p', { className: 'text-gray-400 mt-3 leading-relaxed flex-grow' }, [project.description]),
               createElement('div', { className: 'mt-6' }, [
-                createElement('span', { className: 'font-semibold text-brand-accent/70' }, ['View Project →'])
+                createElement('a', {
+                    href: project.link || '#',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    className: 'font-semibold text-brand-accent hover:text-white transition-colors inline-flex items-center group-hover:translate-x-2 duration-300' 
+                }, ['View Project →'])
               ])
             ])
         ]);
