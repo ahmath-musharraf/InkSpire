@@ -1,20 +1,61 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+InkSpire – Creative Digital Solutions
 
-# Run and deploy your AI Studio app
+A modern, fast, and visually engaging web experience crafted by Mushi Editz. InkSpire showcases premium printing, branding, design, and digital marketing services with a sleek UI and seamless browsing experience.
 
-This contains everything you need to run your app locally.
+Website: https://inkspirekky.vercel.app/
 
-View your app in AI Studio: https://ai.studio/apps/drive/1pcrU0jiIvjva21lDP-IHA4RFD3jpFiz3
+🚀 Features
 
-## Run Locally
+Clean and modern UI
+Responsive design for all screen sizes
+Showcasing print & marketing products
+High‑quality image previews
+Smooth, fast-loading pages
+Easy navigation and organized content
 
-**Prerequisites:**  Node.js
+🛠️ Tech Stack
+Next.js – React-based framework
+Tailwind CSS – Modern utility-first CSS
+Vercel – Deployment and hosting
+Node.js – Runtime environment
 
+📦 Run Locally
+Prerequisites
+Node.js
+Install Dependencies
+npm install
+Environment Variables
+Create a file named .env.local and add:
+GEMINI_API_KEY=your_api_key_here
+Start Development Server
+npm run dev
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+📁 Project Structure
+InkSpire/
+│  package.json
+│  README.md
+│  next.config.js
+│  tailwind.config.js
+│  .env.local
+├── public/
+├── components/
+├── pages/
+└── styles/
+
+🌐 Live Deployment
+
+The project is deployed on Vercel:
+👉 https://inkspirekky.vercel.app/
+
+✨ Created By
+Mushi Editz – Digital Agency
+Creative | Professional | Modern Solutions
+
+📬 Contact
+For collaborations or project inquiries:
+Email: mushieditz@gamil.com
+Instagram: @mushi_editz
+Facebook: Mushi Editz
+
+⭐ If you like this project, consider giving it a star on GitHub!
+
