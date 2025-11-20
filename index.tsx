@@ -852,7 +852,7 @@ function renderFooter() {
                 createElement('h4', { className: 'text-lg font-semibold text-white mb-4' }, ['Contact Us']),
                  createElement('div', { className: 'flex flex-col space-y-3' }, [
                     createElement('a', { 
-                        href: 'https://maps.app.goo.gl/your-google-maps-link', 
+                        href: 'https://maps.app.goo.gl/XiJWVezk6uwnHeKD6', 
                         target: '_blank', 
                         rel: 'noopener noreferrer', 
                         className: 'flex items-start justify-center md:justify-start text-gray-400 hover:text-brand-accent transition-colors rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' 
