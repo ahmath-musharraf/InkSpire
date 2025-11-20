@@ -787,7 +787,7 @@ function renderContactCTA() {
         createElement('div', { className: 'container mx-auto px-6' }, [
             createElement('div', { className: 'bg-brand-accent rounded-lg shadow-lg p-12 text-center text-brand-primary' }, [
                 createElement('h2', { className: 'text-3xl md:text-4xl font-bold mb-4' }, ["Ready to Start Your Project?"]),
-                createElement('p', { className: 'max-w-xl mx-auto text-lg mb-8 text-brand-primary/80' }, ["Let's bring your ideas to life. Get in touch with us today for a free consultation and quote."]),
+                createElement('p', { className: 'max-w-xl mx-auto text-lg mb-8 text-brand-primary/80' }, ["Let's bring your ideas to life. Get in touch with us today for a free consultation."]),
                 createElement('div', { className: 'flex flex-col md:flex-row justify-center items-center gap-6' }, [
                 createElement('a', {
                         href: 'https://wa.me/+940742200156?text=Hello%20INK%20Spire%2C%20I%20would%20like%20to%20start%20a%20project.',
@@ -844,8 +844,7 @@ function renderFooter() {
                 ])
             ]),
              createElement('div', {}, [
-                                 createElement('h4', { className: 'text-lg font-semibold text-white mb-4' }, ['Contact Us']),
-
+                createElement('h4', { className: 'text-lg font-semibold text-white mb-4' }, ['Contact Us']),
                  createElement('div', { className: 'flex flex-col space-y-3' }, [
                     createElement('a', { 
                         href: 'https://maps.app.goo.gl/your-google-maps-link', 
@@ -870,15 +869,6 @@ function renderFooter() {
                         createSVG(ICONS.EMAIL),
                         createElement('span', { className: 'ml-2 text-sm' }, ['inkspire2k25@gmail.com'])
                      ])
-                 createElement('h4', { className: 'text-lg font-semibold text-white mb-4' }, ['Our Location']),
-                 createElement('a', { 
-                    href: 'https://maps.app.goo.gl/TiBLPa9wGDZo9fbF6', // Replace with your actual Google Maps link
-                    target: '_blank', 
-                    rel: 'noopener noreferrer', 
-                    className: 'flex items-start justify-center md:justify-start text-gray-400 hover:text-brand-accent transition-colors rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent' 
-                }, [
-                    createSVG(ICONS.MAP_PIN),
-                    createElement('span', { className: 'ml-2' }, ['No. 75, Beach Road, Kattankudy-03, Batticaloa, Sri Lanka'])
                  ])
             ]),
             createElement('div', {}, [
@@ -1100,7 +1090,6 @@ function renderAllSections() {
     renderTestimonials();
     renderFAQ();
     renderContactCTA();
-    renderContactSection();
     renderFooter();
     createSearchIndex();
 }
