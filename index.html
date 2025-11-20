@@ -53,7 +53,7 @@
               },
               marquee: {
                 '0%': { transform: 'translateX(0%)' },
-                '100%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(-50%)' },
               },
               fadeIn: {
                 '0%': { opacity: '0' },
@@ -118,7 +118,6 @@
           box-shadow: 0 0 0 2px #190D2B, 0 0 0 4px #F8C537;
       }
     </style>
-    <link rel="stylesheet" href="/index.css">
 </head>
   <body class="bg-gradient-to-br from-brand-primary via-[#120a21] to-brand-secondary text-brand-text font-sans antialiased bg-[length:200%_200%] animate-animated-gradient body-loading">
     
@@ -148,7 +147,7 @@
             <a href="#team" class="text-gray-300 hover:text-brand-accent transition-colors duration-300 font-medium">Team</a>
             <a href="#testimonials" class="text-gray-300 hover:text-brand-accent transition-colors duration-300 font-medium">Testimonials</a>
             <a href="#faq" class="text-gray-300 hover:text-brand-accent transition-colors duration-300 font-medium">FAQ</a>
-            <a href="#contact" class="text-gray-300 hover:text-brand-accent transition-colors duration-300 font-medium">Contact</a>
+            <a href="#page-footer" class="text-gray-300 hover:text-brand-accent transition-colors duration-300 font-medium">Contact</a>
             <button id="open-search-desktop" class="text-gray-300 hover:text-brand-accent transition-colors duration-300" aria-label="Open search">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
@@ -181,7 +180,7 @@
             <li><a href="#team" class="block text-gray-300 hover:text-brand-accent transition-colors duration-300 text-center py-2">Team</a></li>
             <li><a href="#testimonials" class="block text-gray-300 hover:text-brand-accent transition-colors duration-300 text-center py-2">Testimonials</a></li>
             <li><a href="#faq" class="block text-gray-300 hover:text-brand-accent transition-colors duration-300 text-center py-2">FAQ</a></li>
-            <li><a href="#contact" class="block text-gray-300 hover:text-brand-accent transition-colors duration-300 text-center py-2">Contact</a></li>
+            <li><a href="#page-footer" class="block text-gray-300 hover:text-brand-accent transition-colors duration-300 text-center py-2">Contact</a></li>
             <li>
               <a href="https://wa.me/+940742200156" target="_blank" rel="noopener noreferrer" class="block bg-brand-accent text-brand-primary font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 text-center">
                 Contact Us
@@ -290,12 +289,16 @@
         <section id="testimonials" class="py-20 md:py-32 bg-brand-secondary/50 overflow-hidden relative"></section>
         <section id="faq" class="py-20 md:py-32 bg-brand-primary/50"></section>
         <section id="contact-cta" class="py-20 bg-transparent"></section>
-        <section id="contact" class="py-20 md:py-32 bg-brand-secondary/50"></section>
     </main>
 
     <footer id="page-footer" class="bg-black py-16"></footer>
 
-    <!-- Floating WhatsApp Button -->
+     <!-- Floating WhatsApp Channel Button (Left) -->
+    <a href="https://whatsapp.com/channel/0029Vb6TVIK0G0XjsQu8gl2s" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-[#25D366] text-white font-bold py-3 px-5 rounded-full shadow-lg hover:bg-[#20bd5a] transition-all duration-300 transform hover:scale-105 group animate-slide-in-left">
+        <span data-inject-icon="WHATSAPP" data-icon-class="w-6 h-6 group-hover:animate-bounce"></span>
+        <span class="hidden sm:inline">Join Channel</span>
+    </a>
+    <!-- Floating WhatsApp Chat Button (Right) -->
     <a href="https://wa.me/+940742200156?text=Hello%20INK%20Spire%2C%20I%20have%20a%20question%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center text-brand-primary shadow-lg transform transition-transform hover:scale-110 animate-pulse-whatsapp" data-inject-icon="WHATSAPP" data-icon-class="w-8 h-8">
     </a>
     
